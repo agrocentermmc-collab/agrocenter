@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Продукты — Agro Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--forest:#1a5c00;--moss:#2e8b00;--sage:#5ab800;--mist:#c3e8a0;--linen:#f0f5e8;--cream:#f7faf2;--bark:#5a6e45;--charcoal:#1e2a14;}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.6;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(247,250,242,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--mist);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-logo img{height:48px;width:48px;object-fit:contain;background:white;border-radius:50%;padding:4px;}
+    .nav-logo-text .name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--forest);}
+    .nav-logo-text .tagline{font-size:0.7rem;color:var(--bark);letter-spacing:0.06em;text-transform:uppercase;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:var(--bark);font-size:0.92rem;font-weight:500;}
+    .nav-links a:hover,.nav-links a.active{color:var(--forest);font-weight:600;}
+    .lang-switcher{display:flex;gap:6px;}
+    .lang-btn{padding:5px 12px;border-radius:20px;border:1.5px solid var(--mist);background:white;color:var(--bark);font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s;}
+    .lang-btn:hover,.lang-btn.active{background:var(--forest);color:white;border-color:var(--forest);}
+    .page-hero{background:linear-gradient(135deg,#1a5c00,#2e8b00);padding:3.5rem 5%;text-align:center;}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;margin-bottom:0.5rem;}
+    .page-hero p{color:rgba(255,255,255,0.8);}
+    .products-section{padding:3rem 5%;}
+    .cat-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--forest);margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid var(--mist);}
+    .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.4rem;margin-bottom:3rem;}
+    .prod-card{background:white;border-radius:16px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
+    .prod-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(26,92,0,0.12);}
+    .prod-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:3.8rem;}
+    .bg1{background:linear-gradient(135deg,#d4edba,#a8d87a);}.bg2{background:linear-gradient(135deg,#fdf2d0,#f5dc8a);}.bg3{background:linear-gradient(135deg,#fde0d0,#f5a87a);}.bg4{background:linear-gradient(135deg,#d0e8fd,#7ab0f5);}.bg5{background:linear-gradient(135deg,#ead0fd,#c07af5);}.bg6{background:linear-gradient(135deg,#d0fde8,#7af5b0);}
+    .prod-body{padding:1.4rem;}
+    .prod-body h3{font-size:1rem;font-weight:600;color:var(--forest);margin-bottom:0.5rem;}
+    .prod-desc{font-size:0.87rem;color:var(--bark);line-height:1.6;}
+    .btn-contact{display:inline-block;margin-top:1rem;background:var(--linen);color:var(--forest);border:1.5px solid var(--mist);border-radius:8px;padding:7px 16px;font-size:0.84rem;font-weight:500;text-decoration:none;transition:background 0.2s;}
+    .btn-contact:hover{background:var(--mist);}
+    footer{background:var(--charcoal);color:rgba(255,255,255,0.6);padding:2rem 5%;text-align:center;font-size:0.85rem;}
+    footer a{color:var(--mist);text-decoration:none;}
+    @media(max-width:768px){.nav-links{display:none;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../logo.jpg" alt="Agro Center"/>
+    <div class="nav-logo-text"><div class="name">Agro Center</div><div class="tagline">Сельское Хозяйство</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="produkty.html" class="active">Продукты</a></li>
+    <li><a href="o-nas.html">О Нас</a></li>
+    <li><a href="kontakt.html">Контакт</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <a href="../mehsullar.html" class="lang-btn">AZ</a>
+    <a href="../en/products.html" class="lang-btn">EN</a>
+    <a href="produkty.html" class="lang-btn active">RU</a>
+  </div>
+</nav>
+<div class="page-hero"><h1>Наши продукты</h1><p>Каталог сертифицированных сельскохозяйственных товаров</p></div>
+<section class="products-section">
+  <h2 class="cat-title" id="udobreniya">🌱 Удобрения</h2>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img bg1">🌿</div><div class="prod-body"><h3>Комплексное удобрение NPK</h3><p class="prod-desc">Комплексное удобрение с оптимальным соотношением азота, фосфора и калия. Поддерживает все этапы развития растений. Поставляется в мешках по 25 кг.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+    <div class="prod-card"><div class="prod-img bg2">💧</div><div class="prod-body"><h3>Органическое удобрение Гумус</h3><p class="prod-desc">Органическое удобрение, улучшающее структуру почвы и стимулирующее микробную активность. Обеспечивает долгосрочное плодородие почвы. Мешки по 20 кг.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+    <div class="prod-card"><div class="prod-img bg3">🧪</div><div class="prod-body"><h3>Азотное удобрение (Карбамид)</h3><p class="prod-desc">Удобрение с высоким содержанием азота (46%). Ускоряет вегетативный рост, обеспечивает мощное развитие листьев и стеблей. Мешки по 50 кг.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+    <div class="prod-card"><div class="prod-img bg4">🌊</div><div class="prod-body"><h3>Удобрение для капельного полива</h3><p class="prod-desc">Полностью водорастворимое жидкое удобрение, специально разработанное для систем капельного орошения. Обеспечивает прямое питание растений. Ёмкости по 5 литров.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+  </div>
+  <h2 class="cat-title" id="semena">🌾 Семена</h2>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img bg2">🌾</div><div class="prod-body"><h3>Семена озимой пшеницы</h3><p class="prod-desc">Высокоурожайный сорт озимой пшеницы, адаптированный к климату Азербайджана. Устойчив к болезням, урожайность 60–70 центнеров с гектара. Упаковка 50 кг.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+    <div class="prod-card"><div class="prod-img bg4">🍅</div><div class="prod-body"><h3>Семена томата F1 Гибрид</h3><p class="prod-desc">Гибридный сорт для теплицы и открытого грунта. Раннее созревание, высокая урожайность. Устойчив к вирусам. Пакеты по 1000 семян.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+    <div class="prod-card"><div class="prod-img bg5">🥒</div><div class="prod-body"><h3>Семена огурца F1 Гибрид</h3><p class="prod-desc">Раннеспелый, высокоурожайный гибридный сорт огурца. Идеален для тепличных условий. Устойчив к мучнистой росе. Пакеты по 500 семян.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+    <div class="prod-card"><div class="prod-img bg1">🫑</div><div class="prod-body"><h3>Семена перца F1 Гибрид</h3><p class="prod-desc">Крупноплодный, высокоурожайный гибридный сорт перца. Плоды с толстой мякотью, ярко окрашенные. Пригоден для открытого грунта и теплицы. 500 семян.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+  </div>
+  <h2 class="cat-title" id="zashchita">🛡️ Средства защиты растений</h2>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img bg3">🛡️</div><div class="prod-body"><h3>Фунгицид «Ридомил Голд»</h3><p class="prod-desc">Фунгицид широкого спектра действия. Высокоэффективен против грибковых заболеваний — мильдью и фитофторы — на картофеле, томатах, винограде. 1 кг.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+    <div class="prod-card"><div class="prod-img bg6">🌿</div><div class="prod-body"><h3>Гербицид «Раундап»</h3><p class="prod-desc">Гербицид широкого спектра действия. Уничтожает однолетние и многолетние сорняки под корень. Разлагается в почве с минимальным воздействием на окружающую среду. 1 литр.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+    <div class="prod-card"><div class="prod-img bg1">🐛</div><div class="prod-body"><h3>Инсектицид «Конфидор»</h3><p class="prod-desc">Системный инсектицид. Высокоэффективен против тли, белокрылки, трипсов и других сосущих вредителей. Обеспечивает длительную защиту. 500 мл.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+    <div class="prod-card"><div class="prod-img bg2">🍇</div><div class="prod-body"><h3>Фунгицид «Топаз»</h3><p class="prod-desc">Профилактический и лечебный фунгицид против мучнистой росы на винограде, яблоне, груше и других плодоовощных культурах. Высокая стойкость. 1 литр.</p><a href="kontakt.html" class="btn-contact">📞 Связаться</a></div></div>
+  </div>
+</section>
+<footer><p>© 2026 <a href="../index.html">Agro Center</a>. Все права защищены.</p></footer>
+</body>
+</html>

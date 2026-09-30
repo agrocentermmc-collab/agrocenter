@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Əlaqə — Agro Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest: #1a5c00; --moss: #2e8b00; --sage: #5ab800;
+      --mist: #c3e8a0; --linen: #f0f5e8; --cream: #f7faf2;
+      --bark: #5a6e45; --charcoal: #1e2a14; --white: #FFFFFF;
+      --display: 'Playfair Display', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+    body { font-family: var(--body); background: var(--cream); color: var(--charcoal); line-height: 1.6; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247,250,242,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--mist);
+      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 48px; width: 48px; object-fit: contain; background: white; border-radius: 50%; padding: 4px; }
+    .nav-logo-text .name { font-family: var(--display); font-size: 1.3rem; font-weight: 700; color: var(--forest); }
+    .nav-logo-text .tagline { font-size: 0.7rem; color: var(--bark); letter-spacing: 0.06em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--bark); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--forest); font-weight: 600; }
+    .btn-cart { background: var(--forest); color: white; border: none; border-radius: 8px; padding: 9px 20px; font-size: 0.9rem; font-weight: 500; cursor: pointer; }
+
+    .page-hero { background: linear-gradient(135deg, #1a5c00, #2e8b00); padding: 4rem 5%; text-align: center; }
+    .page-hero h1 { font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 0.5rem; }
+    .page-hero p { color: rgba(255,255,255,0.8); }
+
+    .contact-section { padding: 4rem 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto; }
+
+    .contact-info h2 { font-family: var(--display); font-size: 1.6rem; color: var(--forest); margin-bottom: 1.5rem; }
+    .info-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
+    .info-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .info-item h3 { font-size: 0.9rem; font-weight: 600; color: var(--forest); margin-bottom: 2px; }
+    .info-item p { font-size: 0.88rem; color: var(--bark); }
+
+    .contact-form h2 { font-family: var(--display); font-size: 1.6rem; color: var(--forest); margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 500; color: var(--bark); margin-bottom: 6px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 11px 14px; border: 1.5px solid var(--mist);
+      border-radius: 10px; font-size: 0.92rem; font-family: var(--body);
+      background: white; color: var(--charcoal); outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--moss); }
+    .form-group textarea { height: 130px; resize: vertical; }
+    .btn-submit { background: var(--forest); color: white; border: none; border-radius: 10px; padding: 13px 32px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; transition: background 0.2s; }
+    .btn-submit:hover { background: var(--moss); }
+
+    footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 2rem 5%; text-align: center; font-size: 0.85rem; }
+    footer a { color: var(--mist); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .contact-section { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.jpg" alt="Agro Center"/>
+    <div class="nav-logo-text">
+      <div class="name">Agro Center</div>
+      <div class="tagline">Kənd Təsərrüfatı</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Ana Səhifə</a></li>
+    <li><a href="mehsullar.html">Məhsullar</a></li>
+    <li><a href="haqqimizda.html">Haqqımızda</a></li>
+    <li><a href="elaqe.html" class="active">Əlaqə</a></li>
+  </ul>
+  <button class="btn-cart">🛒 Səbət (0)</button>
+</nav>
+
+<div class="page-hero">
+  <h1>Əlaqə</h1>
+  <p>Sizinlə əlaqə saxlamaqdan məmnunuq</p>
+</div>
+
+<div class="contact-section">
+  <div class="contact-info">
+    <h2>Bizimlə əlaqə</h2>
+    <div class="info-item">
+      <div class="info-icon">📍</div>
+      <div>
+        <h3>Ünvan</h3>
+        <p>Bakı şəhəri, Nizami küçəsi 10,<br/>Agro Center Binası</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">📞</div>
+      <div>
+        <h3>Telefon</h3>
+        <p>+994 12 345 67 89<br/>+994 50 123 45 67</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">📧</div>
+      <div>
+        <h3>E-poçt</h3>
+        <p>info@agrocenter.az<br/>satis@agrocenter.az</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🕐</div>
+      <div>
+        <h3>İş saatları</h3>
+        <p>B.e. – Cümə: 09:00 – 18:00<br/>Şənbə: 09:00 – 14:00</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h2>Mesaj göndərin</h2>
+    <div class="form-group">
+      <label>Ad Soyad</label>
+      <input type="text" placeholder="Adınızı daxil edin"/>
+    </div>
+    <div class="form-group">
+      <label>Telefon</label>
+      <input type="tel" placeholder="+994 XX XXX XX XX"/>
+    </div>
+    <div class="form-group">
+      <label>Mövzu</label>
+      <select>
+        <option>Məhsul haqqında məlumat</option>
+        <option>Sifariş vermək</option>
+        <option>Aqronom məsləhəti</option>
+        <option>Digər</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Mesaj</label>
+      <textarea placeholder="Mesajınızı yazın..."></textarea>
+    </div>
+    <button class="btn-submit">Göndər ✉️</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="index.html">Agro Center</a>. Bütün hüquqlar qorunur.</p>
+</footer>
+
+</body>
+</html>

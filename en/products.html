@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products — Agro Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--forest:#1a5c00;--moss:#2e8b00;--sage:#5ab800;--mist:#c3e8a0;--linen:#f0f5e8;--cream:#f7faf2;--bark:#5a6e45;--charcoal:#1e2a14;}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.6;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(247,250,242,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--mist);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-logo img{height:48px;width:48px;object-fit:contain;background:white;border-radius:50%;padding:4px;}
+    .nav-logo-text .name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--forest);}
+    .nav-logo-text .tagline{font-size:0.7rem;color:var(--bark);letter-spacing:0.06em;text-transform:uppercase;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:var(--bark);font-size:0.92rem;font-weight:500;}
+    .nav-links a:hover,.nav-links a.active{color:var(--forest);font-weight:600;}
+    .lang-switcher{display:flex;gap:6px;}
+    .lang-btn{padding:5px 12px;border-radius:20px;border:1.5px solid var(--mist);background:white;color:var(--bark);font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s;}
+    .lang-btn:hover,.lang-btn.active{background:var(--forest);color:white;border-color:var(--forest);}
+    .page-hero{background:linear-gradient(135deg,#1a5c00,#2e8b00);padding:3.5rem 5%;text-align:center;}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;margin-bottom:0.5rem;}
+    .page-hero p{color:rgba(255,255,255,0.8);}
+    .products-section{padding:3rem 5%;}
+    .cat-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--forest);margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid var(--mist);}
+    .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.4rem;margin-bottom:3rem;}
+    .prod-card{background:white;border-radius:16px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
+    .prod-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(26,92,0,0.12);}
+    .prod-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:3.8rem;}
+    .bg1{background:linear-gradient(135deg,#d4edba,#a8d87a);}.bg2{background:linear-gradient(135deg,#fdf2d0,#f5dc8a);}.bg3{background:linear-gradient(135deg,#fde0d0,#f5a87a);}.bg4{background:linear-gradient(135deg,#d0e8fd,#7ab0f5);}.bg5{background:linear-gradient(135deg,#ead0fd,#c07af5);}.bg6{background:linear-gradient(135deg,#d0fde8,#7af5b0);}
+    .prod-body{padding:1.4rem;}
+    .prod-body h3{font-size:1rem;font-weight:600;color:var(--forest);margin-bottom:0.5rem;}
+    .prod-desc{font-size:0.87rem;color:var(--bark);line-height:1.6;}
+    .btn-contact{display:inline-block;margin-top:1rem;background:var(--linen);color:var(--forest);border:1.5px solid var(--mist);border-radius:8px;padding:7px 16px;font-size:0.84rem;font-weight:500;text-decoration:none;transition:background 0.2s;}
+    .btn-contact:hover{background:var(--mist);}
+    footer{background:var(--charcoal);color:rgba(255,255,255,0.6);padding:2rem 5%;text-align:center;font-size:0.85rem;}
+    footer a{color:var(--mist);text-decoration:none;}
+    @media(max-width:768px){.nav-links{display:none;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../logo.jpg" alt="Agro Center"/>
+    <div class="nav-logo-text"><div class="name">Agro Center</div><div class="tagline">Agriculture</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html" class="active">Products</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <a href="../mehsullar.html" class="lang-btn">AZ</a>
+    <a href="products.html" class="lang-btn active">EN</a>
+    <a href="../ru/produkty.html" class="lang-btn">RU</a>
+  </div>
+</nav>
+<div class="page-hero"><h1>Our Products</h1><p>Certified agricultural product catalogue</p></div>
+<section class="products-section">
+  <h2 class="cat-title" id="fertilizers">🌱 Fertilizers</h2>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img bg1">🌿</div><div class="prod-body"><h3>NPK Complex Fertilizer</h3><p class="prod-desc">A complete fertilizer with optimal ratios of nitrogen, phosphorus and potassium. Supports all stages of plant development. Available in 25 kg bags.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+    <div class="prod-card"><div class="prod-img bg2">💧</div><div class="prod-body"><h3>Organic Humus Fertilizer</h3><p class="prod-desc">Organic fertilizer that improves soil structure and boosts microbial activity. Provides long-term soil fertility. Available in 20 kg bags.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+    <div class="prod-card"><div class="prod-img bg3">🧪</div><div class="prod-body"><h3>Nitrogen Fertilizer (Urea)</h3><p class="prod-desc">High nitrogen content (46%) fertilizer. Accelerates vegetative growth and ensures strong development of leaves and stems. Available in 50 kg bags.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+    <div class="prod-card"><div class="prod-img bg4">🌊</div><div class="prod-body"><h3>Drip Irrigation Fertilizer</h3><p class="prod-desc">Fully water-soluble liquid fertilizer specially formulated for drip irrigation systems. Provides direct nutrition to plants. Available in 5 litre containers.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+  </div>
+  <h2 class="cat-title" id="seeds">🌾 Seeds</h2>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img bg2">🌾</div><div class="prod-body"><h3>Winter Wheat Seed</h3><p class="prod-desc">High-yield winter wheat variety adapted to Azerbaijan's climate. Disease resistant, yields 60–70 centners per hectare. 50 kg packaging.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+    <div class="prod-card"><div class="prod-img bg4">🍅</div><div class="prod-body"><h3>Tomato Seed F1 Hybrid</h3><p class="prod-desc">Hybrid variety suitable for greenhouse and open field. Early ripening, high yield. Virus resistant. Supplied in packets of 1000 seeds.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+    <div class="prod-card"><div class="prod-img bg5">🥒</div><div class="prod-body"><h3>Cucumber Seed F1 Hybrid</h3><p class="prod-desc">Early ripening, high-yielding hybrid cucumber variety. Ideal for greenhouse conditions. Resistant to powdery mildew. Packets of 500 seeds.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+    <div class="prod-card"><div class="prod-img bg1">🫑</div><div class="prod-body"><h3>Pepper Seed F1 Hybrid</h3><p class="prod-desc">Large-fruited, prolific hybrid pepper variety. Produces thick-fleshed, brightly coloured fruit. Suitable for open field and greenhouse. 500 seeds.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+  </div>
+  <h2 class="cat-title" id="protection">🛡️ Crop Protection</h2>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img bg3">🛡️</div><div class="prod-body"><h3>Fungicide "Ridomil Gold"</h3><p class="prod-desc">Broad-spectrum fungicide. Highly effective against fungal diseases — downy mildew and phytophthora — in potatoes, tomatoes, grapes and other crops. 1 kg.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+    <div class="prod-card"><div class="prod-img bg6">🌿</div><div class="prod-body"><h3>Herbicide "Roundup"</h3><p class="prod-desc">Broad-spectrum herbicide. Eliminates annual and perennial weeds at the root. Biodegrades in soil with minimal environmental impact. 1 litre.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+    <div class="prod-card"><div class="prod-img bg1">🐛</div><div class="prod-body"><h3>Insecticide "Confidor"</h3><p class="prod-desc">Systemic insecticide. Highly effective against aphids, whitefly, thrips and other sucking pests. Provides long-lasting protection. 500 ml.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+    <div class="prod-card"><div class="prod-img bg2">🍇</div><div class="prod-body"><h3>Fungicide "Topaz"</h3><p class="prod-desc">Preventive and curative fungicide against powdery mildew in grapes, apples, pears and other fruit and vegetable crops. Provides high durability. 1 litre.</p><a href="contact.html" class="btn-contact">📞 Contact Us</a></div></div>
+  </div>
+</section>
+<footer><p>© 2026 <a href="../index.html">Agro Center</a>. All rights reserved.</p></footer>
+</body>
+</html>

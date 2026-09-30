@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Контакт — Agro Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--forest:#1a5c00;--moss:#2e8b00;--sage:#5ab800;--mist:#c3e8a0;--linen:#f0f5e8;--cream:#f7faf2;--bark:#5a6e45;--charcoal:#1e2a14;}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.6;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(247,250,242,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--mist);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-logo img{height:48px;width:48px;object-fit:contain;background:white;border-radius:50%;padding:4px;}
+    .nav-logo-text .name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--forest);}
+    .nav-logo-text .tagline{font-size:0.7rem;color:var(--bark);letter-spacing:0.06em;text-transform:uppercase;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:var(--bark);font-size:0.92rem;font-weight:500;}
+    .nav-links a:hover,.nav-links a.active{color:var(--forest);font-weight:600;}
+    .lang-switcher{display:flex;gap:6px;}
+    .lang-btn{padding:5px 12px;border-radius:20px;border:1.5px solid var(--mist);background:white;color:var(--bark);font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s;}
+    .lang-btn:hover,.lang-btn.active{background:var(--forest);color:white;border-color:var(--forest);}
+    .page-hero{background:linear-gradient(135deg,#1a5c00,#2e8b00);padding:3.5rem 5%;text-align:center;}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;margin-bottom:0.5rem;}
+    .page-hero p{color:rgba(255,255,255,0.8);}
+    .contact-section{padding:4rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1000px;margin:0 auto;}
+    .contact-info h2,.contact-form h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--forest);margin-bottom:1.5rem;}
+    .info-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start;}
+    .info-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px;}
+    .info-item h3{font-size:0.9rem;font-weight:600;color:var(--forest);margin-bottom:2px;}
+    .info-item p{font-size:0.88rem;color:var(--bark);}
+    .form-group{margin-bottom:1.2rem;}
+    .form-group label{display:block;font-size:0.88rem;font-weight:500;color:var(--bark);margin-bottom:6px;}
+    .form-group input,.form-group textarea,.form-group select{width:100%;padding:11px 14px;border:1.5px solid var(--mist);border-radius:10px;font-size:0.92rem;font-family:'Inter',system-ui,sans-serif;background:white;color:var(--charcoal);outline:none;transition:border-color 0.2s;}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--moss);}
+    .form-group textarea{height:130px;resize:vertical;}
+    .btn-submit{background:var(--forest);color:white;border:none;border-radius:10px;padding:13px 32px;font-size:1rem;font-weight:600;cursor:pointer;width:100%;transition:background 0.2s;}
+    .btn-submit:hover{background:var(--moss);}
+    footer{background:var(--charcoal);color:rgba(255,255,255,0.6);padding:2rem 5%;text-align:center;font-size:0.85rem;}
+    footer a{color:var(--mist);text-decoration:none;}
+    @media(max-width:768px){.nav-links{display:none;}.contact-section{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../logo.jpg" alt="Agro Center"/>
+    <div class="nav-logo-text"><div class="name">Agro Center</div><div class="tagline">Сельское Хозяйство</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="produkty.html">Продукты</a></li>
+    <li><a href="o-nas.html">О Нас</a></li>
+    <li><a href="kontakt.html" class="active">Контакт</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <a href="../elaqe.html" class="lang-btn">AZ</a>
+    <a href="../en/contact.html" class="lang-btn">EN</a>
+    <a href="kontakt.html" class="lang-btn active">RU</a>
+  </div>
+</nav>
+<div class="page-hero"><h1>Контакт</h1><p>Мы рады слышать вас</p></div>
+<div class="contact-section">
+  <div class="contact-info">
+    <h2>Свяжитесь с нами</h2>
+    <div class="info-item"><div class="info-icon">📍</div><div><h3>Адрес</h3><p>Баку, ул. Низами 10,<br/>Здание Agro Center</p></div></div>
+    <div class="info-item"><div class="info-icon">📞</div><div><h3>Телефон</h3><p>+994 12 345 67 89<br/>+994 50 123 45 67</p></div></div>
+    <div class="info-item"><div class="info-icon">📧</div><div><h3>Эл. почта</h3><p>info@agrocenter.az<br/>sales@agrocenter.az</p></div></div>
+    <div class="info-item"><div class="info-icon">🕐</div><div><h3>Часы работы</h3><p>Пн – Пт: 09:00 – 18:00<br/>Суббота: 09:00 – 14:00</p></div></div>
+  </div>
+  <div class="contact-form">
+    <h2>Написать нам</h2>
+    <div class="form-group"><label>Имя и фамилия</label><input type="text" placeholder="Введите ваше имя"/></div>
+    <div class="form-group"><label>Телефон</label><input type="tel" placeholder="+994 XX XXX XX XX"/></div>
+    <div class="form-group"><label>Тема</label><select><option>Вопрос о продукте</option><option>Оформить заказ</option><option>Консультация агронома</option><option>Другое</option></select></div>
+    <div class="form-group"><label>Сообщение</label><textarea placeholder="Напишите ваше сообщение..."></textarea></div>
+    <button class="btn-submit">Отправить ✉️</button>
+  </div>
+</div>
+<footer><p>© 2026 <a href="../index.html">Agro Center</a>. Все права защищены.</p></footer>
+</body>
+</html>

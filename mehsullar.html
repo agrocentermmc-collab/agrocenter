@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Məhsullar — Agro Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --forest:#1a5c00;--moss:#2e8b00;--sage:#5ab800;--mist:#c3e8a0;--linen:#f0f5e8;--cream:#f7faf2;--bark:#5a6e45;--charcoal:#1e2a14;--white:#FFFFFF; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--cream); color:var(--charcoal); line-height:1.6; }
+    nav { position:sticky;top:0;z-index:100;background:rgba(247,250,242,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--mist);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px; }
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-logo img{height:48px;width:48px;object-fit:contain;background:white;border-radius:50%;padding:4px;}
+    .nav-logo-text .name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--forest);}
+    .nav-logo-text .tagline{font-size:0.7rem;color:var(--bark);letter-spacing:0.06em;text-transform:uppercase;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:var(--bark);font-size:0.92rem;font-weight:500;}
+    .nav-links a:hover,.nav-links a.active{color:var(--forest);font-weight:600;}
+    .lang-switcher{display:flex;gap:6px;}
+    .lang-btn{padding:5px 12px;border-radius:20px;border:1.5px solid var(--mist);background:white;color:var(--bark);font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+    .lang-btn:hover,.lang-btn.active{background:var(--forest);color:white;border-color:var(--forest);}
+    .page-hero{background:linear-gradient(135deg,#1a5c00,#2e8b00);padding:3.5rem 5%;text-align:center;}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;margin-bottom:0.5rem;}
+    .page-hero p{color:rgba(255,255,255,0.8);}
+    .products-section{padding:3rem 5%;}
+    .cat-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--forest);margin-bottom:1.5rem;padding-bottom:0.5rem;border-bottom:2px solid var(--mist);}
+    .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.4rem;margin-bottom:3rem;}
+    .prod-card{background:white;border-radius:16px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
+    .prod-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(26,92,0,0.12);}
+    .prod-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:3.8rem;}
+    .bg1{background:linear-gradient(135deg,#d4edba,#a8d87a);}
+    .bg2{background:linear-gradient(135deg,#fdf2d0,#f5dc8a);}
+    .bg3{background:linear-gradient(135deg,#fde0d0,#f5a87a);}
+    .bg4{background:linear-gradient(135deg,#d0e8fd,#7ab0f5);}
+    .bg5{background:linear-gradient(135deg,#ead0fd,#c07af5);}
+    .bg6{background:linear-gradient(135deg,#d0fde8,#7af5b0);}
+    .prod-body{padding:1.4rem;}
+    .prod-body h3{font-size:1rem;font-weight:600;color:var(--forest);margin-bottom:0.5rem;}
+    .prod-desc{font-size:0.87rem;color:var(--bark);line-height:1.6;}
+    .btn-contact{display:inline-block;margin-top:1rem;background:var(--linen);color:var(--forest);border:1.5px solid var(--mist);border-radius:8px;padding:7px 16px;font-size:0.84rem;font-weight:500;text-decoration:none;transition:background 0.2s;}
+    .btn-contact:hover{background:var(--mist);}
+    footer{background:var(--charcoal);color:rgba(255,255,255,0.6);padding:2rem 5%;text-align:center;font-size:0.85rem;}
+    footer a{color:var(--mist);text-decoration:none;}
+    @media(max-width:768px){.nav-links{display:none;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <img src="../logo.jpg" alt="Agro Center"/>
+    <div class="nav-logo-text"><div class="name">Agro Center</div><div class="tagline">Kənd Təsərrüfatı</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Ana Səhifə</a></li>
+    <li><a href="mehsullar.html" class="active">Məhsullar</a></li>
+    <li><a href="haqqimizda.html">Haqqımızda</a></li>
+    <li><a href="elaqe.html">Əlaqə</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <a href="../mehsullar.html" class="lang-btn active">AZ</a>
+    <a href="../en/mehsullar.html" class="lang-btn">EN</a>
+    <a href="../ru/produkty.html" class="lang-btn">RU</a>
+  </div>
+</nav>
+<div class="page-hero">
+  <h1>Məhsullarımız</h1>
+  <p>Kənd təsərrüfatı üçün sertifikatlı məhsullar kataloqu</p>
+</div>
+<section class="products-section">
+  <h2 class="cat-title" id="gubreler">🌱 Gübrələr</h2>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img bg1">🌿</div><div class="prod-body"><h3>NPK Kompleks Gübrə</h3><p class="prod-desc">Azot, fosfor və kaliumun optimal nisbətini ehtiva edən kompleks gübrə. Bitkinin bütün inkişaf mərhələlərini dəstəkləyir. 25 kq çuvallarda təqdim olunur.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+    <div class="prod-card"><div class="prod-img bg2">💧</div><div class="prod-body"><h3>Üzvi Humus Gübrəsi</h3><p class="prod-desc">Torpaq strukturunu yaxşılaşdıran, mikroorqanizmlərin fəaliyyətini artıran üzvi gübrə. Uzunmüddətli torpaq münbitliyini təmin edir. 20 kq çuvallarda.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+    <div class="prod-card"><div class="prod-img bg3">🧪</div><div class="prod-body"><h3>Azot Gübrəsi (Karbamid)</h3><p class="prod-desc">Yüksək azot tərkibli (46%) gübrə. Bitkinin vegetativ inkişafını sürətləndirir, yarpaq və gövdənin güclü böyüməsini təmin edir. 50 kq çuvallarda.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+    <div class="prod-card"><div class="prod-img bg4">🌊</div><div class="prod-body"><h3>Damcı Sulama üçün Gübrə</h3><p class="prod-desc">Suda tam həll olan, damcı sulama sistemləri üçün xüsusi hazırlanmış maye gübrə. Bitkiyə birbaşa qidalanma təmin edir. 5 litrlik qablarda.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+  </div>
+  <h2 class="cat-title" id="toxumlar">🌾 Toxumlar</h2>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img bg2">🌾</div><div class="prod-body"><h3>Buğda Toxumu (Qış Sortu)</h3><p class="prod-desc">Azərbaycan iqlim şəraitinə uyğunlaşdırılmış, yüksək məhsuldarlıqlı qış buğdası sortu. Xəstəliklərə davamlı, hektara 60-70 sentner məhsul verir.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+    <div class="prod-card"><div class="prod-img bg4">🍅</div><div class="prod-body"><h3>Pomidor Toxumu F1 Hibrid</h3><p class="prod-desc">İstixana və açıq sahə üçün uyğun hibrid sort. Erkən yetişir, yüksək məhsuldarlıq verir. Viruslara davamlıdır. 1000 ədəd paketdə.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+    <div class="prod-card"><div class="prod-img bg5">🥒</div><div class="prod-body"><h3>Xiyar Toxumu F1 Hibrid</h3><p class="prod-desc">Erkən yetişən, bol məhsul verən hibrid xiyar sortu. İstixana şəraitinə ideal uyğundur. Küllü şehə davamlıdır. 500 ədəd paketdə.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+    <div class="prod-card"><div class="prod-img bg1">🫑</div><div class="prod-body"><h3>Bibər Toxumu F1 Hibrid</h3><p class="prod-desc">İri meyvəli, bol məhsuldarlıqlı hibrid bibər sortu. Qalın ətli, parlaq rəngli meyvə verir. Açıq sahə və istixana üçün uyğundur. 500 ədəd.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+  </div>
+  <h2 class="cat-title" id="muhafize">🛡️ Bitki Mühafizə Vasitələri</h2>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img bg3">🛡️</div><div class="prod-body"><h3>Fungisid "Ridomil Gold"</h3><p class="prod-desc">Geniş spektrli fungisid. Kartof, pomidor, üzüm və digər bitkilərdə göbələk xəstəliklərinə qarşı yüksək effektivliyə malikdir. 1 kq.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+    <div class="prod-card"><div class="prod-img bg6">🌿</div><div class="prod-body"><h3>Herbisid "Roundup"</h3><p class="prod-desc">Geniş spektrli herbisid. Bir illik və çoxillik alaq otlarını kökündən məhv edir. Torpaqda parçalanır, ətraf mühitə zərəri minimaldır. 1 litr.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+    <div class="prod-card"><div class="prod-img bg1">🐛</div><div class="prod-body"><h3>İnsektisid "Confidor"</h3><p class="prod-desc">Sistematik təsirli insektisid. Mənənə, ağ sinek, trips və digər zərərverici həşəratlara qarşı effektivdir. Uzun müddətli qoruma təmin edir. 500 ml.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+    <div class="prod-card"><div class="prod-img bg2">🍇</div><div class="prod-body"><h3>Fungisid "Topaz"</h3><p class="prod-desc">Üzüm, alma, armud və digər meyvə-tərəvəz bitkilərində külləmə xəstəliyinə qarşı profilaktik və müalicəvi fungisid. 1 litr.</p><a href="elaqe.html" class="btn-contact">📞 Əlaqə saxla</a></div></div>
+  </div>
+</section>
+<footer><p>© 2026 <a href="../index.html">Agro Center</a>. Bütün hüquqlar qorunur.</p></footer>
+</body>
+</html>

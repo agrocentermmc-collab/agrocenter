@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us — Agro Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--forest:#1a5c00;--moss:#2e8b00;--sage:#5ab800;--mist:#c3e8a0;--linen:#f0f5e8;--cream:#f7faf2;--bark:#5a6e45;--charcoal:#1e2a14;}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.6;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(247,250,242,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--mist);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-logo img{height:48px;width:48px;object-fit:contain;background:white;border-radius:50%;padding:4px;}
+    .nav-logo-text .name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--forest);}
+    .nav-logo-text .tagline{font-size:0.7rem;color:var(--bark);letter-spacing:0.06em;text-transform:uppercase;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:var(--bark);font-size:0.92rem;font-weight:500;}
+    .nav-links a:hover,.nav-links a.active{color:var(--forest);font-weight:600;}
+    .lang-switcher{display:flex;gap:6px;}
+    .lang-btn{padding:5px 12px;border-radius:20px;border:1.5px solid var(--mist);background:white;color:var(--bark);font-size:0.8rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s;}
+    .lang-btn:hover,.lang-btn.active{background:var(--forest);color:white;border-color:var(--forest);}
+    .page-hero{background:linear-gradient(135deg,#1a5c00,#2e8b00);padding:3.5rem 5%;text-align:center;}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:white;margin-bottom:0.5rem;}
+    .page-hero p{color:rgba(255,255,255,0.8);}
+    .about-section{padding:4rem 5%;max-width:900px;margin:0 auto;}
+    .about-section h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--forest);margin-bottom:1rem;}
+    .about-section p{color:var(--bark);margin-bottom:1.5rem;font-size:1rem;line-height:1.8;}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1.4rem;margin:3rem 0;}
+    .stat-card{background:white;border-radius:14px;padding:2rem 1.5rem;text-align:center;box-shadow:0 4px 16px rgba(26,92,0,0.08);}
+    .stat-number{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--forest);}
+    .stat-label{font-size:0.88rem;color:var(--bark);margin-top:4px;}
+    .values-section{padding:4rem 5%;}
+    .values-section h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--forest);margin-bottom:2rem;text-align:center;}
+    .values-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.4rem;max-width:1000px;margin:0 auto;}
+    .value-card{background:var(--linen);border-radius:14px;padding:1.8rem;border-left:4px solid var(--sage);}
+    .value-icon{font-size:2rem;margin-bottom:0.8rem;}
+    .value-card h3{font-size:1rem;font-weight:600;color:var(--forest);margin-bottom:0.4rem;}
+    .value-card p{font-size:0.87rem;color:var(--bark);line-height:1.5;}
+    footer{background:var(--charcoal);color:rgba(255,255,255,0.6);padding:2rem 5%;text-align:center;font-size:0.85rem;}
+    footer a{color:var(--mist);text-decoration:none;}
+    @media(max-width:768px){.nav-links{display:none;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="../index.html"><img src="../logo.jpg" alt="Agro Center"/>
+    <div class="nav-logo-text"><div class="name">Agro Center</div><div class="tagline">Agriculture</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <a href="../haqqimizda.html" class="lang-btn">AZ</a>
+    <a href="about.html" class="lang-btn active">EN</a>
+    <a href="../ru/o-nas.html" class="lang-btn">RU</a>
+  </div>
+</nav>
+<div class="page-hero"><h1>About Us</h1><p>Trusted partner in Azerbaijani agriculture</p></div>
+<section class="about-section">
+  <h2>Who are we?</h2>
+  <p>Agro Center was founded in 2015 with the aim of contributing to the development of agriculture in Azerbaijan. We provide farmers with the highest quality fertilizers, seeds and crop protection products.</p>
+  <p>Our professional team of agronomists develops individual solutions tailored to every farmer's needs. Direct partnerships with international manufacturers allow us to offer competitive prices.</p>
+  <p>Our goal is simple: to increase the productivity of Azerbaijani soil and raise farmers' incomes.</p>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-number">10+</div><div class="stat-label">Years of experience</div></div>
+    <div class="stat-card"><div class="stat-number">5000+</div><div class="stat-label">Satisfied farmers</div></div>
+    <div class="stat-card"><div class="stat-number">200+</div><div class="stat-label">Product varieties</div></div>
+    <div class="stat-card"><div class="stat-number">60+</div><div class="stat-label">Districts covered</div></div>
+  </div>
+</section>
+<section class="values-section">
+  <h2>Our Values</h2>
+  <div class="values-grid">
+    <div class="value-card"><div class="value-icon">✅</div><h3>Quality</h3><p>Every product undergoes strict quality control. We never sell uncertified products.</p></div>
+    <div class="value-card"><div class="value-icon">🤝</div><h3>Trust</h3><p>The trust built with our farmers over 10 years is our greatest asset.</p></div>
+    <div class="value-card"><div class="value-icon">🌱</div><h3>Sustainability</h3><p>We are committed to passing our land on to future generations in good health.</p></div>
+    <div class="value-card"><div class="value-icon">💡</div><h3>Innovation</h3><p>We bring the latest agri-technologies to Azerbaijani farmers.</p></div>
+  </div>
+</section>
+<footer><p>© 2026 <a href="../index.html">Agro Center</a>. All rights reserved.</p></footer>
+</body>
+</html>

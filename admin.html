@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel — Agro Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--forest:#1a5c00;--moss:#2e8b00;--mist:#c3e8a0;--linen:#f0f5e8;--cream:#f7faf2;--bark:#5a6e45;--charcoal:#1e2a14;--red:#c0392b;--white:#fff;}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--charcoal);min-height:100vh;}
+
+    /* LOGIN */
+    #login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#1a5c00,#2e8b00);}
+    .login-box{background:white;border-radius:20px;padding:3rem;width:100%;max-width:400px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2);}
+    .login-logo{font-size:3rem;margin-bottom:1rem;}
+    .login-box h1{font-size:1.4rem;font-weight:700;color:var(--forest);margin-bottom:0.4rem;}
+    .login-box p{font-size:0.88rem;color:var(--bark);margin-bottom:2rem;}
+    .login-input{width:100%;padding:12px 16px;border:1.5px solid var(--mist);border-radius:10px;font-size:1rem;outline:none;margin-bottom:1rem;transition:border-color 0.2s;}
+    .login-input:focus{border-color:var(--moss);}
+    .login-btn{width:100%;background:var(--forest);color:white;border:none;border-radius:10px;padding:13px;font-size:1rem;font-weight:600;cursor:pointer;transition:background 0.2s;}
+    .login-btn:hover{background:var(--moss);}
+    .login-error{color:var(--red);font-size:0.85rem;margin-top:0.5rem;display:none;}
+
+    /* ADMIN LAYOUT */
+    #admin-screen{display:none;}
+    .admin-nav{background:var(--forest);color:white;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;}
+    .admin-nav-logo{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:8px;}
+    .admin-nav-right{display:flex;align-items:center;gap:1rem;}
+    .nav-tab{padding:7px 16px;border-radius:8px;background:rgba(255,255,255,0.1);color:white;border:none;font-size:0.88rem;font-weight:500;cursor:pointer;transition:background 0.2s;}
+    .nav-tab:hover,.nav-tab.active{background:rgba(255,255,255,0.2);}
+    .logout-btn{padding:7px 14px;border-radius:8px;background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.3);font-size:0.85rem;cursor:pointer;}
+    .logout-btn:hover{background:rgba(255,255,255,0.25);}
+
+    .admin-body{padding:2rem;}
+
+    /* TABS */
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;}
+
+    /* SECTION CARD */
+    .admin-card{background:white;border-radius:14px;padding:1.8rem;margin-bottom:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+    .admin-card h2{font-size:1.1rem;font-weight:700;color:var(--forest);margin-bottom:1.4rem;padding-bottom:0.6rem;border-bottom:2px solid var(--mist);}
+
+    /* FORM ELEMENTS */
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+    .form-group{margin-bottom:1rem;}
+    .form-group label{display:block;font-size:0.84rem;font-weight:600;color:var(--bark);margin-bottom:5px;}
+    .form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 13px;border:1.5px solid #e0e8d8;border-radius:8px;font-size:0.92rem;font-family:'Inter',system-ui,sans-serif;outline:none;transition:border-color 0.2s;background:white;}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--moss);}
+    .form-group textarea{height:90px;resize:vertical;}
+    .btn-save{background:var(--forest);color:white;border:none;border-radius:8px;padding:10px 24px;font-size:0.92rem;font-weight:600;cursor:pointer;transition:background 0.2s;}
+    .btn-save:hover{background:var(--moss);}
+    .btn-delete{background:#fff0f0;color:var(--red);border:1.5px solid #ffcccc;border-radius:8px;padding:8px 16px;font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s;}
+    .btn-delete:hover{background:var(--red);color:white;}
+    .btn-add{background:var(--linen);color:var(--forest);border:1.5px solid var(--mist);border-radius:8px;padding:9px 20px;font-size:0.88rem;font-weight:600;cursor:pointer;transition:all 0.2s;margin-bottom:1.2rem;}
+    .btn-add:hover{background:var(--mist);}
+    .save-msg{display:inline-block;margin-left:12px;font-size:0.85rem;color:var(--moss);font-weight:600;opacity:0;transition:opacity 0.3s;}
+
+    /* PRODUCT CARDS IN ADMIN */
+    .prod-admin-card{border:1.5px solid #e0e8d8;border-radius:12px;padding:1.2rem;margin-bottom:1rem;background:var(--cream);}
+    .prod-admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+    .prod-admin-header h3{font-size:0.95rem;font-weight:600;color:var(--forest);}
+
+    /* STATS */
+    .stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin-bottom:2rem;}
+    .stat-box{background:white;border-radius:12px;padding:1.4rem;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+    .stat-box .num{font-size:2rem;font-weight:700;color:var(--forest);}
+    .stat-box .lbl{font-size:0.8rem;color:var(--bark);margin-top:4px;}
+
+    @media(max-width:600px){.form-row{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">🌱</div>
+    <h1>Agro Center Admin</h1>
+    <p>Daxil olmaq üçün şifrənizi yazın</p>
+    <input class="login-input" type="password" id="pwd-input" placeholder="Şifrə..." onkeydown="if(event.key==='Enter')doLogin()"/>
+    <button class="login-btn" onclick="doLogin()">Daxil ol</button>
+    <div class="login-error" id="login-err">❌ Şifrə yanlışdır!</div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin-screen">
+  <nav class="admin-nav">
+    <div class="admin-nav-logo">🌱 Agro Center Admin</div>
+    <div class="admin-nav-right">
+      <button class="nav-tab active" onclick="showTab('dashboard',this)">📊 İcmal</button>
+      <button class="nav-tab" onclick="showTab('products',this)">📦 Məhsullar</button>
+      <button class="nav-tab" onclick="showTab('contact',this)">📞 Əlaqə</button>
+      <button class="nav-tab" onclick="showTab('settings',this)">⚙️ Ayarlar</button>
+      <button class="logout-btn" onclick="doLogout()">Çıxış</button>
+    </div>
+  </nav>
+
+  <div class="admin-body">
+
+    <!-- DASHBOARD -->
+    <div id="tab-dashboard" class="tab-panel active">
+      <h1 style="font-size:1.4rem;font-weight:700;color:var(--forest);margin-bottom:1.5rem;">Xoş gəldiniz 👋</h1>
+      <div class="stats-row">
+        <div class="stat-box"><div class="num" id="stat-prod">12</div><div class="lbl">Məhsul</div></div>
+        <div class="stat-box"><div class="num">3</div><div class="lbl">Kateqoriya</div></div>
+        <div class="stat-box"><div class="num">3</div><div class="lbl">Dil</div></div>
+        <div class="stat-box"><div class="num">🟢</div><div class="lbl">Sayt aktivdir</div></div>
+      </div>
+      <div class="admin-card">
+        <h2>📋 Sürətli Əməliyyatlar</h2>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <button class="btn-add" onclick="showTab('products',document.querySelectorAll('.nav-tab')[1])">+ Yeni məhsul əlavə et</button>
+          <button class="btn-add" onclick="showTab('contact',document.querySelectorAll('.nav-tab')[2])">📞 Əlaqə məlumatlarını dəyiş</button>
+          <a href="index.html" target="_blank"><button class="btn-add">🌐 Sayta bax</button></a>
+        </div>
+      </div>
+      <div class="admin-card">
+        <h2>ℹ️ Necə istifadə edim?</h2>
+        <p style="font-size:0.92rem;color:var(--bark);line-height:1.8;">
+          1. <b>Məhsullar</b> bölməsindən məhsulları dəyişin, əlavə edin və ya silin.<br/>
+          2. <b>Əlaqə</b> bölməsindən telefon, ünvan, e-poçt məlumatlarını yeniləyin.<br/>
+          3. <b>Ayarlar</b> bölməsindən şifrənizi dəyişin.<br/>
+          4. Dəyişiklikləri etdikdən sonra faylları Netlify-a yükləyin.
+        </p>
+      </div>
+    </div>
+
+    <!-- PRODUCTS TAB -->
+    <div id="tab-products" class="tab-panel">
+      <h1 style="font-size:1.4rem;font-weight:700;color:var(--forest);margin-bottom:1.5rem;">📦 Məhsullar</h1>
+
+      <!-- GÜBRƏLƏR -->
+      <div class="admin-card">
+        <h2>🌱 Gübrələr</h2>
+        <button class="btn-add" onclick="addProduct('gubreler')">+ Yeni gübrə əlavə et</button>
+        <div id="list-gubreler">
+
+          <div class="prod-admin-card">
+            <div class="prod-admin-header"><h3>🌿 NPK Kompleks Gübrə</h3><button class="btn-delete" onclick="this.closest('.prod-admin-card').remove()">Sil</button></div>
+            <div class="form-row">
+              <div class="form-group"><label>Məhsul adı (AZ)</label><input type="text" value="NPK Kompleks Gübrə"/></div>
+              <div class="form-group"><label>Emoji</label><input type="text" value="🌿" style="width:80px"/></div>
+            </div>
+            <div class="form-group"><label>Açıqlama (AZ)</label><textarea>Azot, fosfor və kaliumun optimal nisbətini ehtiva edən kompleks gübrə. Bitkinin bütün inkişaf mərhələlərini dəstəkləyir. 25 kq çuvallarda təqdim olunur.</textarea></div>
+            <div class="form-row">
+              <div class="form-group"><label>Product Name (EN)</label><input type="text" value="NPK Complex Fertilizer"/></div>
+              <div class="form-group"><label>Название (RU)</label><input type="text" value="Комплексное удобрение NPK"/></div>
+            </div>
+          </div>
+
+          <div class="prod-admin-card">
+            <div class="prod-admin-header"><h3>💧 Üzvi Humus Gübrəsi</h3><button class="btn-delete" onclick="this.closest('.prod-admin-card').remove()">Sil</button></div>
+            <div class="form-row">
+              <div class="form-group"><label>Məhsul adı (AZ)</label><input type="text" value="Üzvi Humus Gübrəsi"/></div>
+              <div class="form-group"><label>Emoji</label><input type="text" value="💧" style="width:80px"/></div>
+            </div>
+            <div class="form-group"><label>Açıqlama (AZ)</label><textarea>Torpaq strukturunu yaxşılaşdıran, mikroorqanizmlərin fəaliyyətini artıran üzvi gübrə. 20 kq çuvallarda.</textarea></div>
+            <div class="form-row">
+              <div class="form-group"><label>Product Name (EN)</label><input type="text" value="Organic Humus Fertilizer"/></div>
+              <div class="form-group"><label>Название (RU)</label><input type="text" value="Органическое удобрение Гумус"/></div>
+            </div>
+          </div>
+
+        </div>
+        <div style="margin-top:1rem;"><button class="btn-save" onclick="saveMsg(this)">💾 Yadda saxla</button><span class="save-msg">✅ Saxlandı!</span></div>
+      </div>
+
+      <!-- TOXUMLAR -->
+      <div class="admin-card">
+        <h2>🌾 Toxumlar</h2>
+        <button class="btn-add" onclick="addProduct('toxumlar')">+ Yeni toxum əlavə et</button>
+        <div id="list-toxumlar">
+
+          <div class="prod-admin-card">
+            <div class="prod-admin-header"><h3>🌾 Buğda Toxumu</h3><button class="btn-delete" onclick="this.closest('.prod-admin-card').remove()">Sil</button></div>
+            <div class="form-row">
+              <div class="form-group"><label>Məhsul adı (AZ)</label><input type="text" value="Buğda Toxumu (Qış Sortu)"/></div>
+              <div class="form-group"><label>Emoji</label><input type="text" value="🌾" style="width:80px"/></div>
+            </div>
+            <div class="form-group"><label>Açıqlama (AZ)</label><textarea>Azərbaycan iqlim şəraitinə uyğunlaşdırılmış, yüksək məhsuldarlıqlı qış buğdası sortu. 50 kq.</textarea></div>
+            <div class="form-row">
+              <div class="form-group"><label>Product Name (EN)</label><input type="text" value="Winter Wheat Seed"/></div>
+              <div class="form-group"><label>Название (RU)</label><input type="text" value="Семена озимой пшеницы"/></div>
+            </div>
+          </div>
+
+          <div class="prod-admin-card">
+            <div class="prod-admin-header"><h3>🍅 Pomidor Toxumu F1</h3><button class="btn-delete" onclick="this.closest('.prod-admin-card').remove()">Sil</button></div>
+            <div class="form-row">
+              <div class="form-group"><label>Məhsul adı (AZ)</label><input type="text" value="Pomidor Toxumu F1 Hibrid"/></div>
+              <div class="form-group"><label>Emoji</label><input type="text" value="🍅" style="width:80px"/></div>
+            </div>
+            <div class="form-group"><label>Açıqlama (AZ)</label><textarea>İstixana və açıq sahə üçün uyğun hibrid sort. Erkən yetişir, yüksək məhsuldarlıq verir. 1000 ədəd.</textarea></div>
+            <div class="form-row">
+              <div class="form-group"><label>Product Name (EN)</label><input type="text" value="Tomato Seed F1 Hybrid"/></div>
+              <div class="form-group"><label>Название (RU)</label><input type="text" value="Семена томата F1 Гибрид"/></div>
+            </div>
+          </div>
+
+        </div>
+        <div style="margin-top:1rem;"><button class="btn-save" onclick="saveMsg(this)">💾 Yadda saxla</button><span class="save-msg">✅ Saxlandı!</span></div>
+      </div>
+
+      <!-- BİTKİ MÜHAFİZƏSİ -->
+      <div class="admin-card">
+        <h2>🛡️ Bitki Mühafizə Vasitələri</h2>
+        <button class="btn-add" onclick="addProduct('muhafize')">+ Yeni vasitə əlavə et</button>
+        <div id="list-muhafize">
+
+          <div class="prod-admin-card">
+            <div class="prod-admin-header"><h3>🛡️ Fungisid "Ridomil Gold"</h3><button class="btn-delete" onclick="this.closest('.prod-admin-card').remove()">Sil</button></div>
+            <div class="form-row">
+              <div class="form-group"><label>Məhsul adı (AZ)</label><input type="text" value='Fungisid "Ridomil Gold"'/></div>
+              <div class="form-group"><label>Emoji</label><input type="text" value="🛡️" style="width:80px"/></div>
+            </div>
+            <div class="form-group"><label>Açıqlama (AZ)</label><textarea>Geniş spektrli fungisid. Göbələk xəstəliklərinə qarşı yüksək effektivliyə malikdir. 1 kq.</textarea></div>
+            <div class="form-row">
+              <div class="form-group"><label>Product Name (EN)</label><input type="text" value='Fungicide "Ridomil Gold"'/></div>
+              <div class="form-group"><label>Название (RU)</label><input type="text" value='Фунгицид «Ридомил Голд»'/></div>
+            </div>
+          </div>
+
+        </div>
+        <div style="margin-top:1rem;"><button class="btn-save" onclick="saveMsg(this)">💾 Yadda saxla</button><span class="save-msg">✅ Saxlandı!</span></div>
+      </div>
+    </div>
+
+    <!-- CONTACT TAB -->
+    <div id="tab-contact" class="tab-panel">
+      <h1 style="font-size:1.4rem;font-weight:700;color:var(--forest);margin-bottom:1.5rem;">📞 Əlaqə Məlumatları</h1>
+      <div class="admin-card">
+        <h2>Ünvan və Əlaqə</h2>
+        <div class="form-row">
+          <div class="form-group"><label>📞 Telefon 1</label><input type="text" value="+994 12 345 67 89"/></div>
+          <div class="form-group"><label>📞 Telefon 2</label><input type="text" value="+994 50 123 45 67"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>📧 E-poçt (əsas)</label><input type="text" value="info@agrocenter.az"/></div>
+          <div class="form-group"><label>📧 E-poçt (satış)</label><input type="text" value="satis@agrocenter.az"/></div>
+        </div>
+        <div class="form-group"><label>📍 Ünvan (AZ)</label><input type="text" value="Bakı şəhəri, Nizami küçəsi 10, Agro Center Binası"/></div>
+        <div class="form-row">
+          <div class="form-group"><label>📍 Address (EN)</label><input type="text" value="Baku, Nizami Street 10, Agro Center Building"/></div>
+          <div class="form-group"><label>📍 Адрес (RU)</label><input type="text" value="Баку, ул. Низами 10, Здание Agro Center"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>🕐 İş saatları (AZ)</label><input type="text" value="B.e. – Cümə: 09:00–18:00 | Şənbə: 09:00–14:00"/></div>
+          <div class="form-group"><label>🌐 WhatsApp nömrəsi</label><input type="text" value="+994501234567"/></div>
+        </div>
+        <div style="margin-top:0.5rem;"><button class="btn-save" onclick="saveMsg(this)">💾 Yadda saxla</button><span class="save-msg">✅ Saxlandı!</span></div>
+      </div>
+
+      <div class="admin-card">
+        <h2>🌐 Sosial Media</h2>
+        <div class="form-row">
+          <div class="form-group"><label>Facebook</label><input type="text" placeholder="https://facebook.com/agrocenter"/></div>
+          <div class="form-group"><label>Instagram</label><input type="text" placeholder="https://instagram.com/agrocenter"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>WhatsApp</label><input type="text" placeholder="+994501234567"/></div>
+          <div class="form-group"><label>YouTube</label><input type="text" placeholder="https://youtube.com/agrocenter"/></div>
+        </div>
+        <div style="margin-top:0.5rem;"><button class="btn-save" onclick="saveMsg(this)">💾 Yadda saxla</button><span class="save-msg">✅ Saxlandı!</span></div>
+      </div>
+    </div>
+
+    <!-- SETTINGS TAB -->
+    <div id="tab-settings" class="tab-panel">
+      <h1 style="font-size:1.4rem;font-weight:700;color:var(--forest);margin-bottom:1.5rem;">⚙️ Ayarlar</h1>
+      <div class="admin-card">
+        <h2>🔒 Şifrəni Dəyiş</h2>
+        <div class="form-group"><label>Köhnə şifrə</label><input type="password" id="old-pwd" placeholder="Köhnə şifrəni daxil edin"/></div>
+        <div class="form-group"><label>Yeni şifrə</label><input type="password" id="new-pwd" placeholder="Yeni şifrə"/></div>
+        <div class="form-group"><label>Yeni şifrəni təkrar yazın</label><input type="password" id="new-pwd2" placeholder="Təkrar yazın"/></div>
+        <button class="btn-save" onclick="changePwd()">🔒 Şifrəni dəyiş</button>
+        <span class="save-msg" id="pwd-msg"></span>
+      </div>
+      <div class="admin-card">
+        <h2>🌐 Sayt Məlumatları</h2>
+        <div class="form-row">
+          <div class="form-group"><label>Şirkət adı</label><input type="text" value="Agro Center"/></div>
+          <div class="form-group"><label>Sayt dili (standart)</label>
+            <select><option>Azərbaycan dili</option><option>English</option><option>Русский</option></select>
+          </div>
+        </div>
+        <div class="form-group"><label>Sloqan (AZ)</label><input type="text" value="Torpağınızı gücləndirin, məhsulunuzu artırın"/></div>
+        <div class="form-group"><label>Slogan (EN)</label><input type="text" value="Strengthen your soil, grow your harvest"/></div>
+        <div class="form-group"><label>Слоган (RU)</label><input type="text" value="Укрепите почву, увеличьте урожай"/></div>
+        <div style="margin-top:0.5rem;"><button class="btn-save" onclick="saveMsg(this)">💾 Yadda saxla</button><span class="save-msg">✅ Saxlandı!</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Şifrə - bunu dəyişdirin!
+  let ADMIN_PASSWORD = 'agro2026';
+
+  function doLogin(){
+    const v = document.getElementById('pwd-input').value;
+    const saved = localStorage.getItem('adminPwd') || ADMIN_PASSWORD;
+    if(v === saved){
+      document.getElementById('login-screen').style.display='none';
+      document.getElementById('admin-screen').style.display='block';
+      document.getElementById('login-err').style.display='none';
+    } else {
+      document.getElementById('login-err').style.display='block';
+    }
+  }
+
+  function doLogout(){
+    document.getElementById('login-screen').style.display='flex';
+    document.getElementById('admin-screen').style.display='none';
+    document.getElementById('pwd-input').value='';
+  }
+
+  function showTab(name, btn){
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));
+    document.getElementById('tab-'+name).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function saveMsg(btn){
+    const msg = btn.nextElementSibling;
+    msg.style.opacity='1';
+    setTimeout(()=>msg.style.opacity='0',2500);
+  }
+
+  function addProduct(cat){
+    const tpl = `
+    <div class="prod-admin-card">
+      <div class="prod-admin-header"><h3>🌱 Yeni məhsul</h3><button class="btn-delete" onclick="this.closest('.prod-admin-card').remove()">Sil</button></div>
+      <div class="form-row">
+        <div class="form-group"><label>Məhsul adı (AZ)</label><input type="text" placeholder="Məhsul adı..."/></div>
+        <div class="form-group"><label>Emoji</label><input type="text" value="🌿" style="width:80px"/></div>
+      </div>
+      <div class="form-group"><label>Açıqlama (AZ)</label><textarea placeholder="Məhsul haqqında məlumat..."></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label>Product Name (EN)</label><input type="text" placeholder="Product name..."/></div>
+        <div class="form-group"><label>Название (RU)</label><input type="text" placeholder="Название продукта..."/></div>
+      </div>
+    </div>`;
+    document.getElementById('list-'+cat).insertAdjacentHTML('beforeend',tpl);
+  }
+
+  function changePwd(){
+    const old = document.getElementById('old-pwd').value;
+    const n1  = document.getElementById('new-pwd').value;
+    const n2  = document.getElementById('new-pwd2').value;
+    const saved = localStorage.getItem('adminPwd') || ADMIN_PASSWORD;
+    const msg = document.getElementById('pwd-msg');
+    if(old !== saved){ msg.textContent='❌ Köhnə şifrə yanlışdır!'; msg.style.color='#c0392b'; msg.style.opacity='1'; return; }
+    if(n1 !== n2)     { msg.textContent='❌ Şifrələr uyğun deyil!'; msg.style.color='#c0392b'; msg.style.opacity='1'; return; }
+    if(n1.length < 4) { msg.textContent='❌ Şifrə minimum 4 simvol olmalıdır!'; msg.style.color='#c0392b'; msg.style.opacity='1'; return; }
+    localStorage.setItem('adminPwd', n1);
+    msg.textContent='✅ Şifrə dəyişdirildi!'; msg.style.color='#2e8b00'; msg.style.opacity='1';
+    setTimeout(()=>msg.style.opacity='0',3000);
+  }
+</script>
+</body>
+</html>

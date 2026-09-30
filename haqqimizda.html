@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Haqqımızda — Agro Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest: #1a5c00; --moss: #2e8b00; --sage: #5ab800;
+      --mist: #c3e8a0; --linen: #f0f5e8; --cream: #f7faf2;
+      --bark: #5a6e45; --charcoal: #1e2a14; --white: #FFFFFF;
+      --display: 'Playfair Display', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+    body { font-family: var(--body); background: var(--cream); color: var(--charcoal); line-height: 1.6; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247,250,242,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--mist);
+      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 48px; width: 48px; object-fit: contain; background: white; border-radius: 50%; padding: 4px; }
+    .nav-logo-text .name { font-family: var(--display); font-size: 1.3rem; font-weight: 700; color: var(--forest); }
+    .nav-logo-text .tagline { font-size: 0.7rem; color: var(--bark); letter-spacing: 0.06em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--bark); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--forest); font-weight: 600; }
+    .btn-cart { background: var(--forest); color: white; border: none; border-radius: 8px; padding: 9px 20px; font-size: 0.9rem; font-weight: 500; cursor: pointer; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #1a5c00, #2e8b00);
+      padding: 4rem 5%; text-align: center;
+    }
+    .page-hero h1 { font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 0.5rem; }
+    .page-hero p { color: rgba(255,255,255,0.8); }
+
+    .about-section { padding: 4rem 5%; max-width: 900px; margin: 0 auto; }
+    .about-section h2 { font-family: var(--display); font-size: 1.8rem; color: var(--forest); margin-bottom: 1rem; }
+    .about-section p { color: var(--bark); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.8; }
+
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.4rem; margin: 3rem 0;
+    }
+    .stat-card {
+      background: white; border-radius: 14px; padding: 2rem 1.5rem;
+      text-align: center; box-shadow: 0 4px 16px rgba(26,92,0,0.08);
+    }
+    .stat-number { font-family: var(--display); font-size: 2.4rem; font-weight: 700; color: var(--forest); }
+    .stat-label { font-size: 0.88rem; color: var(--bark); margin-top: 4px; }
+
+    .team-section { background: var(--linen); padding: 4rem 5%; }
+    .team-section h2 { font-family: var(--display); font-size: 1.8rem; color: var(--forest); margin-bottom: 2rem; text-align: center; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.4rem; max-width: 900px; margin: 0 auto; }
+    .team-card { background: white; border-radius: 14px; padding: 2rem; text-align: center; }
+    .team-avatar { font-size: 3rem; margin-bottom: 1rem; }
+    .team-card h3 { font-size: 1rem; font-weight: 600; color: var(--forest); }
+    .team-card p { font-size: 0.85rem; color: var(--bark); margin-top: 4px; }
+
+    .values-section { padding: 4rem 5%; }
+    .values-section h2 { font-family: var(--display); font-size: 1.8rem; color: var(--forest); margin-bottom: 2rem; text-align: center; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.4rem; max-width: 1000px; margin: 0 auto; }
+    .value-card { background: var(--linen); border-radius: 14px; padding: 1.8rem; border-left: 4px solid var(--sage); }
+    .value-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .value-card h3 { font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: 0.4rem; }
+    .value-card p { font-size: 0.87rem; color: var(--bark); line-height: 1.5; }
+
+    footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 2rem 5%; text-align: center; font-size: 0.85rem; }
+    footer a { color: var(--mist); text-decoration: none; }
+
+    @media (max-width: 768px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.jpg" alt="Agro Center"/>
+    <div class="nav-logo-text">
+      <div class="name">Agro Center</div>
+      <div class="tagline">Kənd Təsərrüfatı</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Ana Səhifə</a></li>
+    <li><a href="mehsullar.html">Məhsullar</a></li>
+    <li><a href="haqqimizda.html" class="active">Haqqımızda</a></li>
+    <li><a href="elaqe.html">Əlaqə</a></li>
+  </ul>
+  <button class="btn-cart">🛒 Səbət (0)</button>
+</nav>
+
+<div class="page-hero">
+  <h1>Haqqımızda</h1>
+  <p>Azərbaycan fermerlərinin etibarlı tərəfdaşı</p>
+</div>
+
+<section class="about-section">
+  <h2>Biz kimik?</h2>
+  <p>Agro Center, 2015-ci ildə Azərbaycan kənd təsərrüfatının inkişafına töhfə vermək məqsədilə yaradılmışdır. Biz fermerlərimizə ən keyfiyyətli gübrələr, toxumlar və bitki mühafizə vasitələri təqdim edirik.</p>
+  <p>Peşəkar aqronom heyətimiz hər bir fermerin ehtiyaclarına uyğun fərdi həllər hazırlayır. Beynəlxalq istehsalçılarla birbaşa əməkdaşlığımız sayəsində rəqabətli qiymətlər təklif edə bilirik.</p>
+  <p>Məqsədimiz sadədir: Azərbaycan torpağının məhsuldarlığını artırmaq, fermerlərımizin gəlirini yüksəltmək.</p>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">İl təcrübə</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5000+</div>
+      <div class="stat-label">Məmnun fermer</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">200+</div>
+      <div class="stat-label">Məhsul çeşidi</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">60+</div>
+      <div class="stat-label">Rayon əhatəsi</div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section">
+  <h2>Komandamız</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">👨‍💼</div>
+      <h3>Elnur Məmmədov</h3>
+      <p>Baş direktor</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">👨‍🌾</div>
+      <h3>Ramil Hüseynov</h3>
+      <p>Baş aqronom</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">👩‍🔬</div>
+      <h3>Aytən Quliyeva</h3>
+      <p>Laboratoriya mütəxəssisi</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">👨‍💻</div>
+      <h3>Vüsal Əliyev</h3>
+      <p>Satış müdiri</p>
+    </div>
+  </div>
+</section>
+
+<section class="values-section">
+  <h2>Dəyərlərimiz</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">✅</div>
+      <h3>Keyfiyyət</h3>
+      <p>Hər məhsul ciddi keyfiyyət nəzarətindən keçir. Sertifikatsız məhsul satmırıq.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <h3>Etibar</h3>
+      <p>10 ildir fermerlərımizlə qurulan etibar bizim ən böyük sərvətimizdir.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🌱</div>
+      <h3>Davamlılıq</h3>
+      <p>Torpağımızı gələcək nəsillərə sağlam şəkildə çatdırmaq öhdəliyimizdir.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">💡</div>
+      <h3>İnnovasiya</h3>
+      <p>Ən müasir aqrotexnologiyaları Azərbaycan fermerlərinə çatdırırıq.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <a href="index.html">Agro Center</a>. Bütün hüquqlar qorunur.</p>
+</footer>
+
+</body>
+</html>

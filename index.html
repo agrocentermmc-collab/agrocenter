@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agro Center — Kənd Təsərrüfatı</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest: #1a5c00; --moss: #2e8b00; --sage: #5ab800;
+      --mist: #c3e8a0; --linen: #f0f5e8; --cream: #f7faf2;
+      --bark: #5a6e45; --charcoal: #1e2a14; --white: #FFFFFF;
+      --display: 'Playfair Display', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--body); background: var(--cream); color: var(--charcoal); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247,250,242,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--mist);
+      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 48px; width: 48px; object-fit: contain; background: white; border-radius: 50%; padding: 4px; }
+    .nav-logo-text .name { font-family: var(--display); font-size: 1.3rem; font-weight: 700; color: var(--forest); }
+    .nav-logo-text .tagline { font-size: 0.7rem; color: var(--bark); letter-spacing: 0.06em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--bark); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--forest); }
+    .lang-switcher { display: flex; gap: 6px; }
+    .lang-btn {
+      padding: 5px 12px; border-radius: 20px; border: 1.5px solid var(--mist);
+      background: white; color: var(--bark); font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s; text-decoration: none;
+    }
+    .lang-btn:hover { background: var(--forest); color: white; border-color: var(--forest); }
+    .lang-btn.active { background: var(--forest); color: white; border-color: var(--forest); }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh;
+      background: linear-gradient(135deg, #1a5c00 0%, #2e8b00 55%, #5ab800 100%);
+      display: grid; place-items: center;
+      text-align: center; padding: 5% 10%; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content { position: relative; max-width: 740px; }
+    .hero-logo { margin-bottom: 1.8rem; }
+    .hero-logo img { height: 110px; width: 110px; object-fit: contain; background: white; border-radius: 50%; padding: 8px; filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3)); }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); color: var(--mist); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 5px 16px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .hero h1 { font-family: var(--display); font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 700; line-height: 1.1; color: white; margin-bottom: 1.2rem; }
+    .hero h1 em { font-style: italic; color: var(--mist); }
+    .hero p { font-size: 1.1rem; color: rgba(255,255,255,0.82); max-width: 520px; margin: 0 auto 2.4rem; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: white; color: var(--forest); border: none; border-radius: 10px; padding: 14px 32px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; display: inline-block; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+    .btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 10px; padding: 14px 32px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+    /* FEATURES */
+    .features-strip { background: var(--linen); border-bottom: 1px solid var(--mist); padding: 1.2rem 5%; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+    .feat-item { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--bark); font-weight: 500; }
+
+    /* SECTIONS */
+    section { padding: 5rem 5%; }
+    .section-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--moss); margin-bottom: 0.6rem; }
+    .section-title { font-family: var(--display); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; color: var(--forest); line-height: 1.2; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--bark); max-width: 520px; margin-bottom: 3rem; }
+
+    /* CATEGORIES */
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+    .cat-card { border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: block; }
+    .cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,92,0,0.15); }
+    .cat-img { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+    .cat-c1 { background: linear-gradient(135deg,#d4edba,#a8d87a); }
+    .cat-c2 { background: linear-gradient(135deg,#fdf2d0,#f5dc8a); }
+    .cat-c3 { background: linear-gradient(135deg,#fde0d0,#f5a87a); }
+    .cat-info { padding: 1rem 1.2rem; background: white; }
+    .cat-info h3 { font-size: 1rem; font-weight: 600; color: var(--forest); }
+    .cat-info p { font-size: 0.82rem; color: var(--bark); margin-top: 2px; }
+
+    /* WHY */
+    .why { background: var(--forest); }
+    .why .section-title { color: var(--mist); }
+    .why .section-label { color: var(--sage); }
+    .why .section-sub { color: rgba(255,255,255,0.7); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.6rem; }
+    .why-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 1.6rem; transition: background 0.2s; }
+    .why-card:hover { background: rgba(255,255,255,0.12); }
+    .why-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .why-card h3 { font-size: 1rem; font-weight: 600; color: var(--mist); margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.87rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+    /* CTA */
+    .cta { background: linear-gradient(135deg, var(--moss), var(--forest)); text-align: center; padding: 4rem 5%; }
+    .cta h2 { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.2rem); color: white; margin-bottom: 0.8rem; }
+    .cta p { color: rgba(255,255,255,0.75); margin-bottom: 1.8rem; }
+
+    /* FOOTER */
+    footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3rem 5% 1.5rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+    .footer-brand-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; }
+    .footer-brand-logo img { height: 42px; width: 42px; object-fit: contain; background: white; border-radius: 50%; padding: 4px; }
+    .footer-brand-logo .name { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--mist); }
+    .footer-brand p { font-size: 0.87rem; line-height: 1.6; }
+    footer h4 { color: white; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.8rem; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    footer ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.86rem; transition: color 0.2s; }
+    footer ul li a:hover { color: var(--mist); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; flex-wrap: wrap; gap: 8px; }
+    .footer-langs { display: flex; gap: 10px; }
+    .footer-langs a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-langs a:hover { color: var(--mist); }
+
+    @media (max-width: 768px) { .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.jpg" alt="Agro Center"/>
+    <div class="nav-logo-text">
+      <div class="name">Agro Center</div>
+      <div class="tagline">Kənd Təsərrüfatı</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Ana Səhifə</a></li>
+    <li><a href="mehsullar.html">Məhsullar</a></li>
+    <li><a href="haqqimizda.html">Haqqımızda</a></li>
+    <li><a href="elaqe.html">Əlaqə</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <a href="index.html" class="lang-btn active">AZ</a>
+    <a href="en/index.html" class="lang-btn">EN</a>
+    <a href="ru/index.html" class="lang-btn">RU</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-logo"><img src="logo.jpg" alt="Agro Center"/></div>
+    <div class="hero-badge">Kənd Təsərrüfatının Etibarlı Tərəfdaşı</div>
+    <h1>Torpağınızı <em>gücləndirin,</em> məhsulunuzu artırın</h1>
+    <p>Gübrələr, toxumlar və bitki mühafizə vasitələri — hamısı bir yerdə. Azərbaycan fermerlərinin seçimi.</p>
+    <div class="hero-btns">
+      <a href="mehsullar.html" class="btn-primary">Məhsullara Bax</a>
+      <a href="elaqe.html" class="btn-outline">Bizimlə Əlaqə</a>
+    </div>
+  </div>
+</section>
+
+<div class="features-strip">
+  <div class="feat-item"><span>🚚</span> Sürətli çatdırılma</div>
+  <div class="feat-item"><span>🌾</span> Sertifikatlı məhsullar</div>
+  <div class="feat-item"><span>👨‍🌾</span> Aqronom məsləhəti</div>
+  <div class="feat-item"><span>✅</span> Keyfiyyət zəmanəti</div>
+</div>
+
+<section style="background:var(--cream)">
+  <div class="section-label">Kəşf Edin</div>
+  <div class="section-title">Kateqoriyalar</div>
+  <p class="section-sub">Kənd təsərrüfatı üçün lazım olan hər şey bir platformada.</p>
+  <div class="cat-grid">
+    <a href="mehsullar.html#gubreler" class="cat-card">
+      <div class="cat-img cat-c1">🌱</div>
+      <div class="cat-info"><h3>Gübrələr</h3><p>Mineral, üzvi və kompleks gübrələr</p></div>
+    </a>
+    <a href="mehsullar.html#toxumlar" class="cat-card">
+      <div class="cat-img cat-c2">🌾</div>
+      <div class="cat-info"><h3>Toxumlar</h3><p>Tərəvəz, taxıl və meyvə toxumları</p></div>
+    </a>
+    <a href="mehsullar.html#muhafize" class="cat-card">
+      <div class="cat-img cat-c3">🛡️</div>
+      <div class="cat-info"><h3>Bitki Mühafizəsi</h3><p>Pestisidlər, fungisidlər, herbisidlər</p></div>
+    </a>
+  </div>
+</section>
+
+<section class="why">
+  <div class="section-label">Niyə Biz?</div>
+  <div class="section-title">Agro Center fərqi</div>
+  <p class="section-sub">Azərbaycan fermerlərinin etibar etdiyi marka.</p>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">✅</div><h3>Sertifikatlı Məhsullar</h3><p>Bütün məhsullar beynəlxalq keyfiyyət standartlarına uyğundur.</p></div>
+    <div class="why-card"><div class="why-icon">👨‍🌾</div><h3>Aqronom Dəstəyi</h3><p>Peşəkar aqronomlarımız sizə ən uyğun məhsulu seçməkdə kömək edir.</p></div>
+    <div class="why-card"><div class="why-icon">🚚</div><h3>Sürətli Çatdırılma</h3><p>Bütün Azərbaycana sürətli çatdırılma xidməti.</p></div>
+    <div class="why-card"><div class="why-icon">💰</div><h3>Rəqabətli Qiymətlər</h3><p>İstehsalçılarla birbaşa əməkdaşlıq sayəsində əlverişli qiymətlər.</p></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Bizimlə əlaqə saxlayın</h2>
+  <p>Məhsullar və ya aqronom məsləhəti üçün əlaqə saxlayın.</p>
+  <a href="elaqe.html" class="btn-primary">Əlaqə Formu</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-logo">
+        <img src="logo.jpg" alt="Agro Center"/>
+        <span class="name">Agro Center</span>
+      </div>
+      <p>Azərbaycanda kənd təsərrüfatının etibarlı tərəfdaşı.</p>
+    </div>
+    <div>
+      <h4>Məhsullar</h4>
+      <ul>
+        <li><a href="mehsullar.html#gubreler">Gübrələr</a></li>
+        <li><a href="mehsullar.html#toxumlar">Toxumlar</a></li>
+        <li><a href="mehsullar.html#muhafize">Bitki Mühafizəsi</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Şirkət</h4>
+      <ul>
+        <li><a href="haqqimizda.html">Haqqımızda</a></li>
+        <li><a href="elaqe.html">Əlaqə</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Agro Center. Bütün hüquqlar qorunur.</span>
+    <div class="footer-langs">
+      <a href="index.html">🇦🇿 AZ</a>
+      <a href="en/index.html">🇬🇧 EN</a>
+      <a href="ru/index.html">🇷🇺 RU</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
