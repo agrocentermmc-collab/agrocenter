@@ -1,0 +1,67 @@
+{
+  "slug": "bi-58-ec",
+  "category": "bitki-muhafizesi",
+  "order": 3,
+  "image": "/assets/img/bi-58.jpg",
+  "name": {
+    "az": "Bi-58 EC insektisid",
+    "en": "Bi-58 EC insecticide",
+    "ru": "Инсектицид Би-58 КЭ"
+  },
+  "description": {
+    "az": "Zərərvericilərə qarşı güclü və etibarlı müdafiə!\n\nBi-58 EC (dimetoat 40%) kənd təsərrüfatı bitkilərində mənənələr, tripslər, sovkalar və digər zərərverici həşəratlara qarşı istifadə olunan sistem və kontakt təsirli insektisiddir. Bitki tərəfindən mənimsənilərək şirə soran zərərvericilərə qarşı effektiv mübarizə aparır. Həmçinin qidalanma və inkişaf prosesinə təsir göstərərək zərərvericilərin yayılmasının qarşısını almağa kömək edir. Geniş təsir imkanları ilə bitkilərin zərərvericilərdən qorunmasında effektiv vasitədir.",
+    "en": "Strong, reliable protection against pests!\n\nBi-58 EC (dimethoate 40%) is a systemic and contact insecticide used on crops against aphids, thrips, cutworms and other insect pests. Absorbed by the plant, it is effective against sap-sucking pests. It also disrupts pest feeding and development, helping to stop infestations from spreading. Its broad spectrum makes it an effective tool for protecting crops.",
+    "ru": "Надёжная защита от вредителей!\n\nБи-58 КЭ (диметоат 40%) — инсектицид системного и контактного действия против тли, трипсов, совок и других насекомых-вредителей сельскохозяйственных культур. Проникая в растение, эффективно уничтожает сосущих вредителей. Нарушает их питание и развитие, препятствуя распространению. Широкий спектр действия делает его эффективным средством защиты растений."
+  },
+  "features": {
+    "az": "Sistem və kontakt təsirli.\nŞirə soran zərərvericilərə qarşı effektiv.\nMənənə, trips, sovka və digər həşəratlara qarşı.",
+    "en": "Systemic and contact action.\nEffective against sap-sucking pests.\nAgainst aphids, thrips, cutworms and other insects.",
+    "ru": "Системное и контактное действие.\nЭффективен против сосущих вредителей.\nПротив тли, трипсов, совок и других насекомых."
+  },
+  "package": {
+    "az": "",
+    "en": "",
+    "ru": ""
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Təsiredici maddə",
+        "en": "Active ingredient",
+        "ru": "Действующее вещество"
+      },
+      "value": {
+        "az": "Dimetoat 400 q/l (40%)",
+        "en": "Dimethoate 400 g/l (40%)",
+        "ru": "Диметоат 400 г/л (40%)"
+      }
+    },
+    {
+      "label": {
+        "az": "Preparat forması",
+        "en": "Formulation",
+        "ru": "Препаративная форма"
+      },
+      "value": {
+        "az": "Emulsiya konsentratı (EC)",
+        "en": "Emulsifiable concentrate (EC)",
+        "ru": "Концентрат эмульсии (КЭ)"
+      }
+    },
+    {
+      "label": {
+        "az": "Təsir",
+        "en": "Mode of action",
+        "ru": "Действие"
+      },
+      "value": {
+        "az": "Sistem və kontakt",
+        "en": "Systemic and contact",
+        "ru": "Системное и контактное"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": false,
+  "price": ""
+}
