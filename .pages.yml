@@ -1,0 +1,208 @@
+# Admin panel (Pages CMS) ayarları: https://app.pagescms.org
+media:
+  input: assets/img
+  output: /assets/img
+
+content:
+  - name: products
+    label: Məhsullar
+    type: collection
+    path: content/products
+    format: json
+    filename: "{fields.slug}.json"
+    view:
+      primary: slug
+      sort: category
+    fields:
+      - name: slug
+        label: Linkdə görünən ad (yalnız kiçik latın hərfləri və defis, məs. npk-gubre)
+        type: string
+        required: true
+      - name: category
+        label: Kateqoriya
+        type: select
+        required: true
+        options:
+          values:
+            - name: gubreler
+              label: Gübrələr
+            - name: toxumlar
+              label: Toxumlar
+            - name: bitki-muhafizesi
+              label: Bitki mühafizə vasitələri
+      - name: visible
+        label: Saytda göstər
+        type: boolean
+        default: true
+      - name: featured
+        label: Ana səhifədə göstər
+        type: boolean
+      - name: order
+        label: Sıra (kiçik rəqəm əvvəl gəlir)
+        type: number
+      - name: image
+        label: Şəkil
+        type: image
+      - name: name
+        label: Ad
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string, required: true }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
+      - name: description
+        label: Təsvir
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: text }
+          - { name: en, label: English, type: text }
+          - { name: ru, label: Русский, type: text }
+      - name: package
+        label: Qablaşdırma (məs. 25 kq kisə)
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
+      - name: price
+        label: Qiymət (boş qalsa «Qiymət üçün zəng edin» yazılır)
+        type: string
+      - name: specs
+        label: Xüsusiyyətlər (məs. Azot 46%)
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Ad
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: string }
+              - { name: en, label: English, type: string }
+              - { name: ru, label: Русский, type: string }
+          - { name: value, label: Dəyər, type: string }
+
+  - name: settings
+    label: Əlaqə məlumatları
+    type: file
+    path: content/settings.json
+    format: json
+    fields:
+      - { name: company, label: Şirkətin rəsmi adı, type: string }
+      - { name: phone, label: Telefon (+994...), type: string }
+      - { name: whatsapp, label: WhatsApp (+994...), type: string }
+      - { name: email, label: E-poçt, type: string }
+      - name: address
+        label: Ünvan (boş qalsa saytda göstərilmir)
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
+      - name: hours
+        label: İş saatları (məs. B.e.–Şənbə 09:00–18:00)
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
+      - { name: map_link, label: Google Maps linki, type: string }
+      - { name: instagram, label: Instagram linki, type: string }
+      - { name: facebook, label: Facebook linki, type: string }
+      - { name: site_url, label: Saytın ünvanı, type: string }
+
+  - name: home
+    label: Ana səhifə mətnləri
+    type: file
+    path: content/home.json
+    format: json
+    fields:
+      - name: hero_title
+        label: Böyük başlıq
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
+      - name: hero_text
+        label: Başlığın altındakı mətn
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: text }
+          - { name: en, label: English, type: text }
+          - { name: ru, label: Русский, type: text }
+      - name: points
+        label: Üstünlüklər (başlığın altındakı 3 sətir)
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Başlıq
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: string }
+              - { name: en, label: English, type: string }
+              - { name: ru, label: Русский, type: string }
+          - name: text
+            label: Mətn
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: string }
+              - { name: en, label: English, type: string }
+              - { name: ru, label: Русский, type: string }
+
+  - name: about
+    label: Haqqımızda səhifəsi
+    type: file
+    path: content/about.json
+    format: json
+    fields:
+      - name: title
+        label: Başlıq
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
+      - name: lead
+        label: Qısa təsvir (aşağıda da görünür)
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: text }
+          - { name: en, label: English, type: text }
+          - { name: ru, label: Русский, type: text }
+      - name: body
+        label: Əsas mətn (abzaslar arasında boş sətir qoyun)
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: text }
+          - { name: en, label: English, type: text }
+          - { name: ru, label: Русский, type: text }
+
+  - name: categories
+    label: Kateqoriyalar
+    type: file
+    path: content/categories.json
+    format: json
+    fields:
+      - name: items
+        label: Kateqoriyalar
+        type: object
+        list: true
+        fields:
+          - { name: slug, label: Kod (dəyişməyin), type: string }
+          - { name: icon, label: İkon, type: select, options: { values: [sack, sprout, shield] } }
+          - { name: order, label: Sıra, type: number }
+          - name: name
+            label: Ad
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: string }
+              - { name: en, label: English, type: string }
+              - { name: ru, label: Русский, type: string }
+          - name: desc
+            label: Qısa təsvir
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: string }
+              - { name: en, label: English, type: string }
+              - { name: ru, label: Русский, type: string }

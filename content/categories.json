@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "slug": "gubreler",
+      "icon": "sack",
+      "order": 1,
+      "name": {
+        "az": "Gübrələr",
+        "en": "Fertilizers",
+        "ru": "Удобрения"
+      },
+      "desc": {
+        "az": "Mineral, üzvi və kompleks gübrələr",
+        "en": "Mineral, organic and complex fertilizers",
+        "ru": "Минеральные, органические и комплексные удобрения"
+      }
+    },
+    {
+      "slug": "toxumlar",
+      "icon": "sprout",
+      "order": 2,
+      "name": {
+        "az": "Toxumlar",
+        "en": "Seeds",
+        "ru": "Семена"
+      },
+      "desc": {
+        "az": "Tərəvəz, taxıl və bostan toxumları",
+        "en": "Vegetable, grain and melon seeds",
+        "ru": "Семена овощных, зерновых и бахчевых культур"
+      }
+    },
+    {
+      "slug": "bitki-muhafizesi",
+      "icon": "shield",
+      "order": 3,
+      "name": {
+        "az": "Bitki mühafizə vasitələri",
+        "en": "Crop protection",
+        "ru": "Средства защиты растений"
+      },
+      "desc": {
+        "az": "Fungisidlər, herbisidlər, insektisidlər",
+        "en": "Fungicides, herbicides, insecticides",
+        "ru": "Фунгициды, гербициды, инсектициды"
+      }
+    }
+  ]
+}

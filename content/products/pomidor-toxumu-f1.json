@@ -1,0 +1,25 @@
+{
+  "slug": "pomidor-toxumu-f1",
+  "category": "toxumlar",
+  "order": 2,
+  "featured": true,
+  "visible": true,
+  "image": "",
+  "name": {
+    "az": "Pomidor toxumu F1 hibrid",
+    "en": "Tomato seed, F1 hybrid",
+    "ru": "Семена томата F1"
+  },
+  "description": {
+    "az": "İstixana və açıq sahə üçün erkən yetişən hibrid sort. Viruslara davamlıdır.",
+    "en": "Early-ripening hybrid for greenhouse and open field. Virus resistant.",
+    "ru": "Раннеспелый гибрид для теплицы и открытого грунта. Устойчив к вирусам."
+  },
+  "package": {
+    "az": "1000 ədəd paket",
+    "en": "Pack of 1000 seeds",
+    "ru": "Пакет 1000 семян"
+  },
+  "price": "",
+  "specs": []
+}

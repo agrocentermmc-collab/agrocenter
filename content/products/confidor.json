@@ -1,0 +1,25 @@
+{
+  "slug": "confidor",
+  "category": "bitki-muhafizesi",
+  "order": 3,
+  "featured": false,
+  "visible": true,
+  "image": "",
+  "name": {
+    "az": "İnsektisid «Confidor»",
+    "en": "Insecticide “Confidor”",
+    "ru": "Инсектицид «Конфидор»"
+  },
+  "description": {
+    "az": "Sistem təsirli insektisid. Mənənə, ağqanad, trips və digər sorucu zərərvericilərə qarşı.",
+    "en": "Systemic insecticide against aphids, whitefly, thrips and other sucking pests.",
+    "ru": "Системный инсектицид против тли, белокрылки, трипсов и других сосущих вредителей."
+  },
+  "package": {
+    "az": "500 ml",
+    "en": "500 ml",
+    "ru": "500 мл"
+  },
+  "price": "",
+  "specs": []
+}

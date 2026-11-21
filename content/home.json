@@ -1,0 +1,50 @@
+{
+  "hero_title": {
+    "az": "Gübrə, toxum və bitki mühafizə vasitələri",
+    "en": "Fertilizers, seeds and crop protection",
+    "ru": "Удобрения, семена и средства защиты растений"
+  },
+  "hero_text": {
+    "az": "Fermerlər və təsərrüfatlar üçün pərakəndə və topdan satış. Zəng edin və ya WhatsApp-a yazın, ehtiyacınıza uyğun məhsulu birlikdə seçək.",
+    "en": "Retail and wholesale supply for farmers and agribusinesses. Call or message us on WhatsApp and we’ll help you choose the right product.",
+    "ru": "Розничная и оптовая продажа для фермеров и хозяйств. Позвоните или напишите в WhatsApp, и мы поможем подобрать продукт."
+  },
+  "points": [
+    {
+      "title": {
+        "az": "Pərakəndə və topdan",
+        "en": "Retail and wholesale",
+        "ru": "Розница и опт"
+      },
+      "text": {
+        "az": "Bir kisədən tutmuş böyük sifarişlərə qədər.",
+        "en": "From a single bag to large orders.",
+        "ru": "От одного мешка до крупных заказов."
+      }
+    },
+    {
+      "title": {
+        "az": "Elektron qaimə ilə",
+        "en": "E-invoice available",
+        "ru": "Электронная накладная"
+      },
+      "text": {
+        "az": "Şirkətlər üçün rəsmi sənədləşmə.",
+        "en": "Official paperwork for companies.",
+        "ru": "Официальное оформление для компаний."
+      }
+    },
+    {
+      "title": {
+        "az": "Seçimdə kömək",
+        "en": "Help choosing",
+        "ru": "Помощь в выборе"
+      },
+      "text": {
+        "az": "Bitkiyə və torpağa görə məhsul tövsiyəsi.",
+        "en": "Product advice for your crop and soil.",
+        "ru": "Подбор продукта под культуру и почву."
+      }
+    }
+  ]
+}

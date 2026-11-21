@@ -1,0 +1,25 @@
+{
+  "slug": "uzvi-humus-gubresi",
+  "category": "gubreler",
+  "order": 3,
+  "featured": false,
+  "visible": true,
+  "image": "",
+  "name": {
+    "az": "Üzvi humus gübrəsi",
+    "en": "Organic humus fertilizer",
+    "ru": "Органическое удобрение «Гумус»"
+  },
+  "description": {
+    "az": "Torpaq strukturunu yaxşılaşdırır və mikroorqanizmlərin fəaliyyətini artırır. Uzunmüddətli münbitlik üçün.",
+    "en": "Improves soil structure and boosts microbial activity. For long-term soil fertility.",
+    "ru": "Улучшает структуру почвы и стимулирует микробную активность. Для долгосрочного плодородия."
+  },
+  "package": {
+    "az": "20 kq kisə",
+    "en": "20 kg bag",
+    "ru": "Мешок 20 кг"
+  },
+  "price": "",
+  "specs": []
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "bugda-toxumu-qis",
+  "category": "toxumlar",
+  "order": 1,
+  "featured": false,
+  "visible": true,
+  "image": "",
+  "name": {
+    "az": "Buğda toxumu (qış sortu)",
+    "en": "Winter wheat seed",
+    "ru": "Семена озимой пшеницы"
+  },
+  "description": {
+    "az": "Azərbaycan iqliminə uyğunlaşmış, xəstəliklərə davamlı qış buğdası sortu.",
+    "en": "Winter wheat variety adapted to Azerbaijan's climate and resistant to disease.",
+    "ru": "Сорт озимой пшеницы, адаптированный к климату Азербайджана, устойчивый к болезням."
+  },
+  "package": {
+    "az": "",
+    "en": "",
+    "ru": ""
+  },
+  "price": "",
+  "specs": []
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "xiyar-toxumu-f1",
+  "category": "toxumlar",
+  "order": 3,
+  "featured": false,
+  "visible": true,
+  "image": "",
+  "name": {
+    "az": "Xiyar toxumu F1 hibrid",
+    "en": "Cucumber seed, F1 hybrid",
+    "ru": "Семена огурца F1"
+  },
+  "description": {
+    "az": "Erkən yetişən, bol məhsul verən hibrid sort. İstixana üçün uyğundur, küləməyə davamlıdır.",
+    "en": "Early, high-yielding hybrid suited to greenhouses. Resistant to powdery mildew.",
+    "ru": "Раннеспелый урожайный гибрид для теплиц. Устойчив к мучнистой росе."
+  },
+  "package": {
+    "az": "500 ədəd paket",
+    "en": "Pack of 500 seeds",
+    "ru": "Пакет 500 семян"
+  },
+  "price": "",
+  "specs": []
+}

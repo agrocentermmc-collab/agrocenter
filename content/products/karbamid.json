@@ -1,0 +1,34 @@
+{
+  "slug": "karbamid",
+  "category": "gubreler",
+  "order": 1,
+  "featured": true,
+  "visible": true,
+  "image": "/assets/img/karbamid.jpg",
+  "name": {
+    "az": "Karbamid (azot gübrəsi)",
+    "en": "Urea (nitrogen fertilizer)",
+    "ru": "Карбамид (азотное удобрение)"
+  },
+  "description": {
+    "az": "SOCAR Carbamide istehsalı. Azot tərkibi 46,3%. Bitkinin vegetativ inkişafını sürətləndirir, yarpaq və gövdənin güclü böyüməsini təmin edir.",
+    "en": "Produced by SOCAR Carbamide. Nitrogen content 46.3%. Speeds up vegetative growth and supports strong leaf and stem development.",
+    "ru": "Производство SOCAR Carbamide. Содержание азота 46,3%. Ускоряет вегетативный рост, обеспечивает мощное развитие листьев и стеблей."
+  },
+  "package": {
+    "az": "45 kq kisə",
+    "en": "45 kg bag",
+    "ru": "Мешок 45 кг"
+  },
+  "price": "",
+  "specs": [
+    {
+      "label": {
+        "az": "Azot (N)",
+        "en": "Nitrogen (N)",
+        "ru": "Азот (N)"
+      },
+      "value": "46,3%"
+    }
+  ]
+}

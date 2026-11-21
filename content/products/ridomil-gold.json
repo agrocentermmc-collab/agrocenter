@@ -1,0 +1,25 @@
+{
+  "slug": "ridomil-gold",
+  "category": "bitki-muhafizesi",
+  "order": 1,
+  "featured": false,
+  "visible": true,
+  "image": "",
+  "name": {
+    "az": "Fungisid «Ridomil Gold»",
+    "en": "Fungicide “Ridomil Gold”",
+    "ru": "Фунгицид «Ридомил Голд»"
+  },
+  "description": {
+    "az": "Geniş spektrli fungisid. Kartof, pomidor, üzüm və digər bitkilərdə göbələk xəstəliklərinə qarşı.",
+    "en": "Broad-spectrum fungicide against fungal diseases in potatoes, tomatoes, grapes and other crops.",
+    "ru": "Фунгицид широкого спектра против грибковых болезней картофеля, томатов, винограда и других культур."
+  },
+  "package": {
+    "az": "1 kq",
+    "en": "1 kg",
+    "ru": "1 кг"
+  },
+  "price": "",
+  "specs": []
+}
