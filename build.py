@@ -497,8 +497,12 @@ def main():
            "admin.html": "/", "en/index.html": None, "en/products.html": "/en/products/", "en/about.html": "/en/about/",
            "en/contact.html": "/en/contact/", "ru/index.html": None, "ru/produkty.html": "/ru/produkty/",
            "ru/o-nas.html": "/ru/o-nas/", "ru/kontakt.html": "/ru/kontakt/"}
+    # Netlify üçün: köhnə .html linkləri 301 ilə yönləndir (səhifə ilə eyni adlı fayl yaratmırıq ki, döngə olmasın)
+    rules = [f"/{src}  {to}  301" for src, to in old.items() if to and not src.endswith("index.html")]
+    write("/_redirects", "\n".join(rules) + "\n")
     for src, to in old.items():
-        if to and not (OUT / src).exists():
+        clash = (OUT / src.replace(".html", "")).is_dir()
+        if to and not clash and not (OUT / src).exists():
             write("/" + src, redirect(to))
     today = date.today().isoformat()
     sm = "".join(f"<url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls)
