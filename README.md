@@ -25,6 +25,7 @@ EN və ya RU mətni boş qalsa, həmin dildə Azərbaycanca mətn göstərilir.
 | `build.py` | Saytı `content/`-dən yığan skript |
 | `.pages.yml` | Admin panelin ayarları |
 | `netlify.toml` | Netlify yayım ayarları |
+| `requirements.txt` | Build üçün Python paketi (Pillow: şəkillərin kiçik WebP variantları) |
 
 Kompüterdə yoxlamaq üçün: `python3 build.py`, sonra `_site/` qovluğunda `python3 -m http.server`.
 

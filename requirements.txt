@@ -1,0 +1,2 @@
+# Netlify bunu özü quraşdırır. Pillow şəkillərin kiçik WebP variantlarını yaradır (məcburi deyil).
+Pillow>=10,<13

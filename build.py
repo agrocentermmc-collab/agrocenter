@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
 """Agro Center saytını yığır: content/ qovluğundakı fayllardan _site/ qovluğuna hazır HTML.
 
-Heç bir əlavə paket lazım deyil (yalnız Python 3). İşə salmaq:  python3 build.py
+Yalnız Python 3 lazımdır. Pillow quraşdırılıbsa (requirements.txt), şəkillərin kiçik WebP variantları da yaradılır;
+yoxdursa, sayt orijinal şəkillərlə yığılır. İşə salmaq:  python3 build.py
 Məzmunu dəyişmək üçün bu fayla toxunmayın: content/ qovluğunu və ya admin paneli istifadə edin.
 """
+import hashlib
 import html
 import json
 import re
 import shutil
+import subprocess
 from datetime import date
 from pathlib import Path
 from urllib.parse import quote
+
+try:
+    from PIL import Image
+except ImportError:  # Pillow yoxdursa, şəkillər olduğu kimi qalır
+    Image = None
 
 ROOT = Path(__file__).parent
 CONTENT = ROOT / "content"
@@ -124,6 +132,95 @@ def paras(text):
     return "".join(f"<p>{e(p.strip())}</p>" for p in re.split(r"\n\s*\n", text or "") if p.strip())
 
 
+def short(text, n=160):
+    """Mətni n simvola qədər, sözün ortasında kəsmədən qısaldır."""
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if len(text) <= n:
+        return text
+    cut = text[:n - 1].rsplit(" ", 1)[0].rstrip(" ,;:.-–—")
+    return cut + "…"
+
+
+_VER = {}
+
+
+def asset(path):
+    """/assets/... faylına məzmun heşi əlavə edir (?v=...), ki brauzer köhnə versiyanı keşdən göstərməsin."""
+    if path not in _VER:
+        f = ROOT / path.lstrip("/")
+        _VER[path] = hashlib.md5(f.read_bytes()).hexdigest()[:8] if f.is_file() else ""
+    return f"{path}?v={_VER[path]}" if _VER[path] else path
+
+
+IMG_WIDTHS = [400, 800]
+_IMG = {}
+
+
+def img_info(path):
+    """Şəklin real ölçüsü və (Pillow varsa) kiçik WebP variantları: (width, height, srcset)."""
+    if path in _IMG:
+        return _IMG[path]
+    src = ROOT / path.lstrip("/")
+    info = (None, None, "")
+    if Image and src.is_file() and path.startswith("/assets/img/"):
+        try:
+            with Image.open(src) as im:
+                im.load()
+                w, h = im.size
+                ver = asset(path).partition("?")[2]
+                parts = []
+                for tw in IMG_WIDTHS:
+                    tw = min(tw, w)
+                    rel = f"/assets/img/w/{src.stem}-{tw}.webp"
+                    out = OUT / rel.lstrip("/")
+                    out.parent.mkdir(parents=True, exist_ok=True)
+                    im2 = im.convert("RGBA" if im.mode in ("RGBA", "LA", "P") else "RGB")
+                    im2.resize((tw, round(h * tw / w)), Image.LANCZOS).save(out, "WEBP", quality=80, method=6)
+                    parts.append(f"{rel}?{ver} {tw}w")
+                    if tw == w:
+                        break
+                info = (w, h, ", ".join(parts))
+        except OSError:
+            pass
+    _IMG[path] = info
+    return info
+
+
+def img_tag(path, alt, sizes, lazy=True):
+    w, h, srcset = img_info(path)
+    attrs = f'src="{e(asset(path))}" alt="{e(alt)}"'
+    if srcset:
+        attrs += f' srcset="{e(srcset)}" sizes="{sizes}"'
+    attrs += f' width="{w or 570}" height="{h or 570}"'
+    if lazy:
+        attrs += ' loading="lazy" decoding="async"'
+    return f"<img {attrs}>"
+
+
+def git_date(*paths):
+    """Faylların son dəyişdiyi tarix (git-dən). Tapılmasa None."""
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", *paths], cwd=ROOT,
+                             capture_output=True, text=True, timeout=10).stdout.strip()
+        return out or None
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+def price_number(price):
+    m = re.search(r"\d+(?:[.,]\d+)?", price or "")
+    return m.group(0).replace(",", ".") if m else None
+
+
+def price_currency(price):
+    p = (price or "").lower()
+    if "$" in p or "usd" in p or "dollar" in p:
+        return "USD"
+    if "€" in p or "eur" in p:
+        return "EUR"
+    return "AZN"
+
+
 def fmt_phone(p):
     d = re.sub(r"\D", "", p or "")
     if d.startswith("994") and len(d) == 12:
@@ -147,6 +244,7 @@ CAT_BY = {c["slug"]: c for c in CATS}
 PRODUCTS = []
 for f in sorted((CONTENT / "products").glob("*.json")):
     p = json.loads(f.read_text(encoding="utf-8"))
+    p["_file"] = f
     p["slug"] = re.sub(r"[^a-z0-9-]", "-", (p.get("slug") or f.stem).lower()).strip("-")
     if p.get("visible", True):
         PRODUCTS.append(p)
@@ -164,10 +262,12 @@ def wa_link(text):
 
 
 # ---------- layout ----------
+SIZES = {"pv": "(max-width: 640px) 50vw, 380px", "pd-v": "(max-width: 960px) 100vw, 560px"}
+
+
 def product_visual(p, lang, cls="pv"):
     if p.get("image"):
-        return (f'<div class="{cls}"><img src="{e(p["image"])}" alt="{e(tx(p["name"], lang))}" '
-                f'loading="lazy" width="570" height="570"></div>')
+        return f'<div class="{cls}">{img_tag(p["image"], tx(p["name"], lang), SIZES.get(cls, "100vw"), lazy=cls == "pv")}</div>'
     cat = CAT_BY.get(p.get("category"), {})
     return f'<div class="{cls} {cls}--empty cat-{e(cat.get("slug", ""))}">{icon(cat.get("icon", "sprout"), "pv-ic")}</div>'
 
@@ -182,7 +282,7 @@ def header(lang, active, alts):
     return f'''<a class="skip" href="#main">{T["skip"][lang]}</a>
 <header class="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="{url("home", lang)}"><img src="/assets/img/logo-sm.png" alt="" width="48" height="48"><span>Agro Center</span></a>
+    <a class="brand" href="{url("home", lang)}"><img src="{asset("/assets/img/logo-sm.png")}" alt="" width="48" height="48"><span>Agro Center</span></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav">{icon("menu")}<span>{T["menu"][lang]}</span></button>
     <div class="nav-wrap" id="nav">
       <nav class="nav" aria-label="{T["menu"][lang]}">{nav}</nav>
@@ -209,7 +309,7 @@ def footer(lang):
     social_html = f'<div><h2>{ {"az": "Sosial şəbəkələr", "en": "Social", "ru": "Соцсети"}[lang] }</h2><ul>{"".join(social)}</ul></div>' if social else ""
     return f'''<footer class="ftr">
   <div class="wrap ftr-in">
-    <div class="ftr-brand"><img src="/assets/img/logo-sm.png" alt="Agro Center" width="72" height="72"><p>{e(tx(ABOUT["lead"], lang))}</p></div>
+    <div class="ftr-brand"><img src="{asset("/assets/img/logo-sm.png")}" alt="Agro Center" width="72" height="72" loading="lazy"><p>{e(tx(ABOUT["lead"], lang))}</p></div>
     <div><h2>{T["products"][lang]}</h2><ul>{cats}</ul></div>
     <div><h2>{T["contact"][lang]}</h2><ul>{"".join(contact)}</ul></div>
     {social_html}
@@ -233,7 +333,7 @@ def org_jsonld():
     return json.dumps(d, ensure_ascii=False)
 
 
-def page(lang, active, title, desc, body, alts, extra_head=""):
+def page(lang, active, title, desc, body, alts, extra_head="", og_image=None, og_type="website"):
     full_title = f"{title} | Agro Center" if active != "home" else f"Agro Center — {title}"
     alt_links = "".join(f'<link rel="alternate" hreflang="{l}" href="{SITE}{alts[l]}">' for l in LANGS)
     alt_links += f'<link rel="alternate" hreflang="x-default" href="{SITE}{alts["az"]}">'
@@ -243,21 +343,21 @@ def page(lang, active, title, desc, body, alts, extra_head=""):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(full_title)}</title>
-<meta name="description" content="{e(desc)}">
+<meta name="description" content="{e(short(desc))}">
 <link rel="canonical" href="{SITE}{alts[lang]}">
 {alt_links}
-<meta property="og:type" content="website">
+<meta property="og:type" content="{og_type}">
 <meta property="og:title" content="{e(full_title)}">
-<meta property="og:description" content="{e(desc)}">
+<meta property="og:description" content="{e(short(desc, 200))}">
 <meta property="og:url" content="{SITE}{alts[lang]}">
-<meta property="og:image" content="{SITE}/assets/img/logo.png">
+<meta property="og:image" content="{SITE}{og_image or "/assets/img/logo.png"}">
 <meta name="theme-color" content="#1d3a1a">
-<link rel="icon" href="/assets/img/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="icon" href="{asset("/assets/img/favicon.png")}" type="image/png">
+<link rel="apple-touch-icon" href="{asset("/assets/img/icon-192.png")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="{asset("/assets/style.css")}">
 <script type="application/ld+json">{org_jsonld()}</script>
 {extra_head}
 </head>
@@ -267,7 +367,7 @@ def page(lang, active, title, desc, body, alts, extra_head=""):
 {body}
 </main>
 {footer(lang)}
-<script src="/assets/main.js" defer></script>
+<script src="{asset("/assets/main.js")}" defer></script>
 </body>
 </html>
 '''
@@ -322,7 +422,7 @@ def build_home(lang):
         if pk:
             specs += f'<div><dt>{T["package"][lang]}</dt><dd>{e(pk)}</dd></div>'
         label = f'''<a class="tag" href="{url("products", lang, hero_p["slug"])}">
-      <img src="{e(hero_p["image"])}" alt="{e(tx(hero_p["name"], lang))}" width="570" height="570">
+      {img_tag(hero_p["image"], tx(hero_p["name"], lang), "(max-width: 960px) 90vw, 420px", lazy=False)}
       <div class="tag-label"><p class="tag-name">{e(tx(hero_p["name"], lang))}</p><dl>{specs}</dl></div>
     </a>'''
     points = "".join(f'<li><h3>{e(tx(pt["title"], lang))}</h3><p>{e(tx(pt["text"], lang))}</p></li>' for pt in HOME.get("points", []))
@@ -396,10 +496,24 @@ def build_product(lang, p):
     feats = [f.strip(" -•✅\t") for f in tx(p.get("features"), lang).splitlines() if f.strip(" -•✅\t")]
     features_html = (f'<h2 class="pd-sub">{T["benefits"][lang]}</h2><ul class="feats">'
                      + "".join(f"<li>{e(f)}</li>" for f in feats) + "</ul>") if feats else ""
-    jsonld = {"@context": "https://schema.org", "@type": "Product", "name": name, "description": desc,
-              "brand": {"@type": "Brand", "name": "Agro Center"}}
-    if p.get("image"):
-        jsonld["image"] = SITE + p["image"]
+    page_url = SITE + url("products", lang, p["slug"])
+    crumbs = [(T["home"][lang], url("home", lang)), (T["products"][lang], url("products", lang))]
+    if cat:
+        crumbs.append((tx(cat["name"], lang), url("products", lang) + "#" + cat["slug"]))
+    crumbs.append((name, url("products", lang, p["slug"])))
+    blocks = [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i, "name": n, "item": SITE + u} for i, (n, u) in enumerate(crumbs, 1)]}]
+    # Google Product nişanı yalnız qiymət olanda düzgün sayılır; qiymət yoxdursa, onu əlavə etmirik
+    num = price_number(p.get("price"))
+    if num:
+        prod = {"@context": "https://schema.org", "@type": "Product", "name": name, "description": desc, "url": page_url,
+                "offers": {"@type": "Offer", "price": num, "priceCurrency": price_currency(p.get("price")),
+                           "availability": "https://schema.org/InStock", "url": page_url,
+                           "seller": {"@type": "Organization", "name": S.get("company") or "Agro Center"}}}
+        if p.get("image"):
+            prod["image"] = SITE + p["image"]
+        blocks.append(prod)
+    jsonld_html = "".join(f'<script type="application/ld+json">{json.dumps(b, ensure_ascii=False)}</script>' for b in blocks)
     body = f'''<div class="wrap crumbs"><a href="{url("products", lang)}">{T["products"][lang]}</a>{f' / <a href="{url("products", lang)}#{cat["slug"]}">{e(tx(cat["name"], lang))}</a>' if cat else ""}</div>
 <section class="pd"><div class="wrap pd-in">
   {product_visual(p, lang, "pd-v")}
@@ -413,8 +527,8 @@ def build_product(lang, p):
   </div>
 </div></section>
 {rel_html}'''
-    return page(lang, "products", name, desc[:160], body, alts_for("products", p["slug"]),
-                f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>')
+    return page(lang, "products", name, desc, body, alts_for("products", p["slug"]), jsonld_html,
+                og_image=p.get("image"), og_type="product")
 
 
 def build_about(lang):
@@ -481,16 +595,18 @@ def main():
         shutil.rmtree(OUT)
     OUT.mkdir()
     shutil.copytree(ROOT / "assets", OUT / "assets")
-    urls = []
+    urls = []  # (link, son dəyişmə tarixi)
+    src = {"home": ["content/home.json", "content/products"], "products": ["content/products", "content/categories.json"],
+           "about": ["content/about.json"], "contact": ["content/settings.json"]}
     for lang in LANGS:
         for key, fn in [("home", build_home), ("products", build_products), ("about", build_about), ("contact", build_contact)]:
             u = url(key, lang)
             write(u, fn(lang))
-            urls.append(u)
+            urls.append((u, git_date(*src[key])))
         for p in PRODUCTS:
             u = url("products", lang, p["slug"])
             write(u, build_product(lang, p))
-            urls.append(u)
+            urls.append((u, git_date(str(p["_file"].relative_to(ROOT)))))
     write("/404.html", build_404())
     # köhnə saytın linkləri yeni səhifələrə yönəlsin
     old = {"index.html": "/", "mehsullar.html": "/mehsullar/", "haqqimizda.html": "/haqqimizda/", "elaqe.html": "/elaqe/",
@@ -504,13 +620,9 @@ def main():
         clash = (OUT / src.replace(".html", "")).is_dir()
         if to and not clash and not (OUT / src).exists():
             write("/" + src, redirect(to))
-    today = date.today().isoformat()
-    sm = "".join(f"<url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls)
+    sm = "".join(f"<url><loc>{SITE}{u}</loc>{f'<lastmod>{d}</lastmod>' if d else ''}</url>" for u, d in urls)
     write("/sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>')
     write("/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
-    domain = re.sub(r"^https?://", "", SITE).split("/")[0]
-    write("/CNAME", domain + "\n")
-    write("/.nojekyll", "")
     print(f"Hazırdır: {len(urls)} səhifə, {len(PRODUCTS)} məhsul -> {OUT}")
 
 

@@ -2,3 +2,18 @@
 [build]
   command = "python3 build.py"
   publish = "_site"
+
+# Təhlükəsizlik başlıqları — bütün səhifələr üçün
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+# CSS, JS və şəkillər: linkdə ?v=... versiyası var, ona görə brauzer bir il keşdə saxlaya bilər
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
