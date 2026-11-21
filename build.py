@@ -181,7 +181,7 @@ def header(lang, active, alts):
     return f'''<a class="skip" href="#main">{T["skip"][lang]}</a>
 <header class="hdr">
   <div class="wrap hdr-in">
-    <a class="brand" href="{url("home", lang)}"><img src="/assets/img/logo.png" alt="" width="44" height="44"><span>Agro Center</span></a>
+    <a class="brand" href="{url("home", lang)}"><img src="/assets/img/logo-sm.png" alt="" width="48" height="48"><span>Agro Center</span></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav">{icon("menu")}<span>{T["menu"][lang]}</span></button>
     <div class="nav-wrap" id="nav">
       <nav class="nav" aria-label="{T["menu"][lang]}">{nav}</nav>
@@ -208,7 +208,7 @@ def footer(lang):
     social_html = f'<div><h2>{ {"az": "Sosial şəbəkələr", "en": "Social", "ru": "Соцсети"}[lang] }</h2><ul>{"".join(social)}</ul></div>' if social else ""
     return f'''<footer class="ftr">
   <div class="wrap ftr-in">
-    <div class="ftr-brand"><img src="/assets/img/logo.png" alt="Agro Center" width="72" height="72"><p>{e(tx(ABOUT["lead"], lang))}</p></div>
+    <div class="ftr-brand"><img src="/assets/img/logo-sm.png" alt="Agro Center" width="72" height="72"><p>{e(tx(ABOUT["lead"], lang))}</p></div>
     <div><h2>{T["products"][lang]}</h2><ul>{cats}</ul></div>
     <div><h2>{T["contact"][lang]}</h2><ul>{"".join(contact)}</ul></div>
     {social_html}
