@@ -229,3 +229,30 @@ p { margin: 0 0 1em; }
 .feats { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; max-width: 38em; }
 .feats li { position: relative; padding-left: 1.9rem; }
 .feats li::before { content: ""; position: absolute; left: 0; top: .2em; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: var(--sage) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f7a23' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center / 70% no-repeat; }
+
+/* haqqımızda */
+.about { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.stats li { background: var(--white); border: 1px solid var(--line); border-top: 5px solid var(--leaf); border-radius: 4px var(--r) var(--r) var(--r); padding: 1.3rem 1.2rem; display: flex; flex-direction: column; gap: .2rem; }
+.stats li:nth-child(4n+2) { border-top-color: var(--wheat); }
+.stats li:nth-child(4n+3) { border-top-color: var(--clay); }
+.stats li:nth-child(4n+4) { border-top-color: var(--field); }
+.stat-num { font: 700 clamp(1.7rem, 3.4vw, 2.4rem)/1.1 var(--display); color: var(--field); }
+.stat-label { color: var(--muted); font-size: .95rem; }
+.vals { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.val { background: var(--white); border: 1px solid var(--line); border-radius: var(--r); padding: 1.5rem 1.3rem; }
+.val-ic { width: 2.2rem; height: 2.2rem; color: var(--leaf); margin-bottom: .8rem; }
+.val p { margin: 0; color: var(--muted); font-size: .97rem; }
+.team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.2rem; }
+.tm { text-align: center; border: 1px solid var(--line); border-radius: var(--r); padding: 1.6rem 1.2rem; }
+.tm img, .tm-ph { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; }
+.tm-ph { display: grid; place-items: center; background: var(--sage); color: var(--leaf); }
+.tm-ic { width: 48px; height: 48px; }
+.tm p { margin: 0; color: var(--muted); font-size: .95rem; }
+@media (max-width: 960px) {
+  .about { grid-template-columns: 1fr; }
+  .vals { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .vals { grid-template-columns: 1fr; }
+}

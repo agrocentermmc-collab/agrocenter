@@ -104,6 +104,10 @@ ICONS = {
     "mail": '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
     "pin": '<path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
     "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    "check": '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/>',
+    "handshake": '<path d="M3 11l4-4 3 1 2-1 4 0 5 4"/><path d="M3 11l5 5c1 1 2 1 3 0l1-1 1 1c1 1 2 1 3 0l3-3"/><path d="M12 7l-3 3c-.8.8 0 2 1 2l2-1 3 3"/>',
+    "bulb": '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
+    "user": '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
     "menu": '<path d="M4 7h16M4 12h16M4 17h16"/>',
 }
 
@@ -532,13 +536,41 @@ def build_product(lang, p):
 
 
 def build_about(lang):
-    body = f'''<section class="phead"><div class="wrap"><h1>{e(tx(ABOUT["title"], lang))}</h1></div></section>
-<section class="sec"><div class="wrap prose">
-  <p class="lead">{e(tx(ABOUT["lead"], lang))}</p>
-  {paras(tx(ABOUT["body"], lang))}
+    A = ABOUT
+    tagline = tx(A.get("tagline"), lang)
+    stats = "".join(f'<li><span class="stat-num">{e(s.get("value"))}</span><span class="stat-label">{e(tx(s.get("label"), lang))}</span></li>'
+                    for s in A.get("stats", []) if s.get("value"))
+    stats_html = f'<ul class="stats">{stats}</ul>' if stats else ""
+    story_title = tx(A.get("story_title"), lang)
+    values = "".join(f'<li class="val">{icon(v.get("icon") if v.get("icon") in ICONS else "sprout", "val-ic")}'
+                     f'<h3>{e(tx(v.get("title"), lang))}</h3><p>{e(tx(v.get("text"), lang))}</p></li>'
+                     for v in A.get("values", []) if tx(v.get("title"), lang))
+    values_html = (f'<section class="sec sec--alt"><div class="wrap"><h2 class="sec-title">{e(tx(A.get("values_title"), lang))}</h2>'
+                   f'<ul class="vals">{values}</ul></div></section>') if values else ""
+    team = ""
+    for m in A.get("team", []):
+        if not m.get("name"):
+            continue
+        ph = (img_tag(m["photo"], m["name"], "112px") if m.get("photo")
+              else f'<span class="tm-ph">{icon("user", "tm-ic")}</span>')
+        team += f'<li class="tm">{ph}<h3>{e(m["name"])}</h3><p>{e(tx(m.get("role"), lang))}</p></li>'
+    team_html = (f'<section class="sec"><div class="wrap"><h2 class="sec-title">{e(tx(A.get("team_title"), lang))}</h2>'
+                 f'<ul class="team">{team}</ul></div></section>') if team else ""
+    head_lead = f'<p class="lead">{e(tagline)}</p>' if tagline else ""
+    story_h = f'<h2>{e(story_title)}</h2>' if story_title else ""
+    body = f'''<section class="phead"><div class="wrap"><h1>{e(tx(A["title"], lang))}</h1>{head_lead}</div></section>
+<section class="sec"><div class="wrap about">
+  <div class="prose">
+    {story_h}
+    <p class="lead">{e(tx(A["lead"], lang))}</p>
+    {paras(tx(A["body"], lang))}
+  </div>
+  {stats_html}
 </div></section>
+{values_html}
+{team_html}
 {cta_band(lang)}'''
-    return page(lang, "about", tx(ABOUT["title"], lang), tx(ABOUT["lead"], lang), body, alts_for("about"))
+    return page(lang, "about", tx(A["title"], lang), (tx(A["lead"], lang) + " " + tagline).strip(), body, alts_for("about"))
 
 
 def build_contact(lang):

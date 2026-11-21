@@ -176,6 +176,13 @@ content:
           - { name: az, label: Azərbaycanca, type: string }
           - { name: en, label: English, type: string }
           - { name: ru, label: Русский, type: string }
+      - name: tagline
+        label: Başlığın altındakı qısa cümlə
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
       - name: lead
         label: Qısa təsvir (aşağıda da görünür)
         type: object
@@ -183,6 +190,13 @@ content:
           - { name: az, label: Azərbaycanca, type: text }
           - { name: en, label: English, type: text }
           - { name: ru, label: Русский, type: text }
+      - name: story_title
+        label: Əsas mətnin başlığı
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
       - name: body
         label: Əsas mətn (abzaslar arasında boş sətir qoyun)
         type: object
@@ -190,6 +204,67 @@ content:
           - { name: az, label: Azərbaycanca, type: text }
           - { name: en, label: English, type: text }
           - { name: ru, label: Русский, type: text }
+      - name: stats
+        label: Rəqəmlər (məs. 5000+ məmnun fermer)
+        type: object
+        list: true
+        fields:
+          - { name: value, label: Rəqəm, type: string }
+          - name: label
+            label: Yazı
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: string }
+              - { name: en, label: English, type: string }
+              - { name: ru, label: Русский, type: string }
+      - name: values_title
+        label: Dəyərlər bölməsinin başlığı
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
+      - name: values
+        label: Dəyərlərimiz
+        type: object
+        list: true
+        fields:
+          - { name: icon, label: İkon, type: select, options: { values: [check, handshake, sprout, bulb, shield, sack] } }
+          - name: title
+            label: Ad
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: string }
+              - { name: en, label: English, type: string }
+              - { name: ru, label: Русский, type: string }
+          - name: text
+            label: Mətn
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: text }
+              - { name: en, label: English, type: text }
+              - { name: ru, label: Русский, type: text }
+      - name: team_title
+        label: Komanda bölməsinin başlığı
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: string }
+          - { name: en, label: English, type: string }
+          - { name: ru, label: Русский, type: string }
+      - name: team
+        label: Komanda (boş qalsa, bölmə görünmür)
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Ad Soyad, type: string }
+          - { name: photo, label: Şəkil, type: image }
+          - name: role
+            label: Vəzifə
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: string }
+              - { name: en, label: English, type: string }
+              - { name: ru, label: Русский, type: string }
 
   - name: categories
     label: Kateqoriyalar
