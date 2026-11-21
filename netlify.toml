@@ -1,0 +1,4 @@
+# Netlify bu ayarlarla saytı özü yığır (python3 build.py) və _site qovluğunu yayımlayır.
+[build]
+  command = "python3 build.py"
+  publish = "_site"
