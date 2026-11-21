@@ -1,0 +1,79 @@
+{
+  "slug": "score-250-ec",
+  "category": "bitki-muhafizesi",
+  "order": 2,
+  "image": "/assets/img/score-250-ec.jpg",
+  "name": {
+    "az": "Score 250 EC funqisid",
+    "en": "Score 250 EC fungicide",
+    "ru": "Фунгицид Скор 250 КЭ"
+  },
+  "description": {
+    "az": "Syngenta istehsalı. Alternarioz, dəmgil və digər göbələk xəstəliklərinə qarşı istifadə olunan funqisiddir. Meyvə bağlarında və tərəvəz bitkilərində tətbiq edilir.",
+    "en": "Produced by Syngenta. A fungicide against alternaria, scab and other fungal diseases. Used in orchards and on vegetable crops.",
+    "ru": "Производство Syngenta. Фунгицид против альтернариоза, парши и других грибковых болезней. Применяется в плодовых садах и на овощных культурах."
+  },
+  "features": {
+    "az": "Alternarioz və dəmgilə qarşı.\nDigər göbələk xəstəliklərinə qarşı da istifadə olunur.\nMeyvə bağları və tərəvəz bitkiləri üçün.",
+    "en": "Against alternaria and scab.\nAlso used against other fungal diseases.\nFor orchards and vegetable crops.",
+    "ru": "Против альтернариоза и парши.\nТакже применяется против других грибковых болезней.\nДля плодовых садов и овощных культур."
+  },
+  "package": {
+    "az": "250 ml flakon",
+    "en": "250 ml bottle",
+    "ru": "Флакон 250 мл"
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Təsiredici maddə",
+        "en": "Active ingredient",
+        "ru": "Действующее вещество"
+      },
+      "value": {
+        "az": "Difenokonazol 250 q/l",
+        "en": "Difenoconazole 250 g/l",
+        "ru": "Дифеноконазол 250 г/л"
+      }
+    },
+    {
+      "label": {
+        "az": "Preparat forması",
+        "en": "Formulation",
+        "ru": "Препаративная форма"
+      },
+      "value": {
+        "az": "Emulsiya konsentratı (EC)",
+        "en": "Emulsifiable concentrate (EC)",
+        "ru": "Концентрат эмульсии (КЭ)"
+      }
+    },
+    {
+      "label": {
+        "az": "Uyğun bitkilər",
+        "en": "Suitable crops",
+        "ru": "Культуры"
+      },
+      "value": {
+        "az": "Meyvə bağları, tərəvəzlər",
+        "en": "Orchards, vegetables",
+        "ru": "Плодовые сады, овощи"
+      }
+    },
+    {
+      "label": {
+        "az": "İstehsalçı",
+        "en": "Manufacturer",
+        "ru": "Производитель"
+      },
+      "value": {
+        "az": "Syngenta",
+        "en": "Syngenta",
+        "ru": "Syngenta"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": false,
+  "price": ""
+}

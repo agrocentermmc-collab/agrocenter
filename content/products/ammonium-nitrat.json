@@ -1,0 +1,67 @@
+{
+  "slug": "ammonium-nitrat",
+  "category": "gubreler",
+  "order": 4,
+  "image": "/assets/img/ammonium-nitrat.jpg",
+  "name": {
+    "az": "Ammonium nitrat (34,4% azot)",
+    "en": "Ammonium nitrate (34.4% N)",
+    "ru": "Аммиачная селитра (34,4% азота)"
+  },
+  "description": {
+    "az": "EuroChem istehsalı. Tərkibində 34,4% azot var. Bitkilərin sürətli azot təminatı üçün istifadə olunur.",
+    "en": "Produced by EuroChem. Contains 34.4% nitrogen. Used to give crops a fast supply of nitrogen.",
+    "ru": "Производство EuroChem. Содержит 34,4% азота. Применяется для быстрого обеспечения растений азотом."
+  },
+  "features": {
+    "az": "Bitkiləri tez azotla təmin edir.\nƏsasən vegetasiya dövründə yemləmə üçün.\nTaxıl, pambıq, qarğıdalı və tərəvəz üçün uyğundur.",
+    "en": "Supplies nitrogen to crops quickly.\nMainly used for top-dressing during the growing season.\nSuitable for cereals, cotton, maize and vegetables.",
+    "ru": "Быстро обеспечивает растения азотом.\nПрименяется в основном для подкормки в период вегетации.\nПодходит для зерновых, хлопчатника, кукурузы и овощей."
+  },
+  "package": {
+    "az": "50 kq kisə",
+    "en": "50 kg bag",
+    "ru": "Мешок 50 кг"
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Azot (N)",
+        "en": "Nitrogen (N)",
+        "ru": "Азот (N)"
+      },
+      "value": {
+        "az": "34,4%",
+        "en": "34,4%",
+        "ru": "34,4%"
+      }
+    },
+    {
+      "label": {
+        "az": "Uyğun bitkilər",
+        "en": "Suitable crops",
+        "ru": "Культуры"
+      },
+      "value": {
+        "az": "Taxıl, pambıq, qarğıdalı, tərəvəz",
+        "en": "Cereals, cotton, maize, vegetables",
+        "ru": "Зерновые, хлопчатник, кукуруза, овощи"
+      }
+    },
+    {
+      "label": {
+        "az": "İstehsalçı",
+        "en": "Manufacturer",
+        "ru": "Производитель"
+      },
+      "value": {
+        "az": "EuroChem",
+        "en": "EuroChem",
+        "ru": "EuroChem"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": false,
+  "price": ""
+}

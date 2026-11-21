@@ -1,0 +1,79 @@
+{
+  "slug": "ammofos-12-52",
+  "category": "gubreler",
+  "order": 5,
+  "image": "/assets/img/ammofos.jpg",
+  "name": {
+    "az": "Ammofos (12-52-0)",
+    "en": "Ammophos (12-52-0)",
+    "ru": "Аммофос (12-52-0)"
+  },
+  "description": {
+    "az": "EuroChem istehsalı. Tərkibində 12% azot və 52% fosfor var. Kök sisteminin inkişafını və bitkinin ilkin böyüməsini dəstəkləyir.",
+    "en": "Produced by EuroChem. Contains 12% nitrogen and 52% phosphorus. Supports root development and early plant growth.",
+    "ru": "Производство EuroChem. Содержит 12% азота и 52% фосфора. Способствует развитию корневой системы и начальному росту растений."
+  },
+  "features": {
+    "az": "Kök sisteminin inkişafını gücləndirir.\nBitkinin ilkin böyüməsini dəstəkləyir.\nƏsasən səpin zamanı və şumaltı gübrə kimi verilir.",
+    "en": "Strengthens root development.\nSupports early growth.\nMainly applied at sowing and as a pre-plough fertilizer.",
+    "ru": "Усиливает развитие корневой системы.\nПоддерживает начальный рост.\nВносится в основном при посеве и под вспашку."
+  },
+  "package": {
+    "az": "50 kq kisə",
+    "en": "50 kg bag",
+    "ru": "Мешок 50 кг"
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Azot (N)",
+        "en": "Nitrogen (N)",
+        "ru": "Азот (N)"
+      },
+      "value": {
+        "az": "12%",
+        "en": "12%",
+        "ru": "12%"
+      }
+    },
+    {
+      "label": {
+        "az": "Fosfor (P₂O₅)",
+        "en": "Phosphorus (P₂O₅)",
+        "ru": "Фосфор (P₂O₅)"
+      },
+      "value": {
+        "az": "52%",
+        "en": "52%",
+        "ru": "52%"
+      }
+    },
+    {
+      "label": {
+        "az": "Uyğun bitkilər",
+        "en": "Suitable crops",
+        "ru": "Культуры"
+      },
+      "value": {
+        "az": "Buğda, arpa, qarğıdalı, pambıq, tərəvəz",
+        "en": "Wheat, barley, maize, cotton, vegetables",
+        "ru": "Пшеница, ячмень, кукуруза, хлопчатник, овощи"
+      }
+    },
+    {
+      "label": {
+        "az": "İstehsalçı",
+        "en": "Manufacturer",
+        "ru": "Производитель"
+      },
+      "value": {
+        "az": "EuroChem",
+        "en": "EuroChem",
+        "ru": "EuroChem"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": false,
+  "price": ""
+}

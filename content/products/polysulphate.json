@@ -1,0 +1,91 @@
+{
+  "slug": "polysulphate",
+  "category": "gubreler",
+  "order": 6,
+  "image": "/assets/img/polysulphate.jpg",
+  "name": {
+    "az": "Polysulphate (qranul)",
+    "en": "Polysulphate (granular)",
+    "ru": "Полисульфат (гранулы)"
+  },
+  "description": {
+    "az": "ICL Group istehsalı. Bitkiləri bir gübrə ilə kükürd, kalium, kalsium və maqneziumla təmin edir.",
+    "en": "Produced by ICL Group. A single fertilizer that supplies sulphur, potassium, calcium and magnesium.",
+    "ru": "Производство ICL Group. Одно удобрение обеспечивает растения серой, калием, кальцием и магнием."
+  },
+  "features": {
+    "az": "Dörd qida elementi bir gübrədə: kükürd, kalium, kalsium, maqnezium.\nTaxıl, kartof, tərəvəz və digər bitkilər üçün uyğundur.",
+    "en": "Four nutrients in one fertilizer: sulphur, potassium, calcium, magnesium.\nSuitable for cereals, potatoes, vegetables and other crops.",
+    "ru": "Четыре элемента питания в одном удобрении: сера, калий, кальций, магний.\nПодходит для зерновых, картофеля, овощей и других культур."
+  },
+  "package": {
+    "az": "25 kq kisə",
+    "en": "25 kg bag",
+    "ru": "Мешок 25 кг"
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Kükürd (SO₃)",
+        "en": "Sulphur (SO₃)",
+        "ru": "Сера (SO₃)"
+      },
+      "value": {
+        "az": "48%",
+        "en": "48%",
+        "ru": "48%"
+      }
+    },
+    {
+      "label": {
+        "az": "Kalium (K₂O)",
+        "en": "Potassium (K₂O)",
+        "ru": "Калий (K₂O)"
+      },
+      "value": {
+        "az": "14%",
+        "en": "14%",
+        "ru": "14%"
+      }
+    },
+    {
+      "label": {
+        "az": "Kalsium (CaO)",
+        "en": "Calcium (CaO)",
+        "ru": "Кальций (CaO)"
+      },
+      "value": {
+        "az": "17%",
+        "en": "17%",
+        "ru": "17%"
+      }
+    },
+    {
+      "label": {
+        "az": "Maqnezium (MgO)",
+        "en": "Magnesium (MgO)",
+        "ru": "Магний (MgO)"
+      },
+      "value": {
+        "az": "6%",
+        "en": "6%",
+        "ru": "6%"
+      }
+    },
+    {
+      "label": {
+        "az": "İstehsalçı",
+        "en": "Manufacturer",
+        "ru": "Производитель"
+      },
+      "value": {
+        "az": "ICL Group",
+        "en": "ICL Group",
+        "ru": "ICL Group"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": false,
+  "price": ""
+}
