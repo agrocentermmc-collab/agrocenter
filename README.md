@@ -24,14 +24,12 @@ EN və ya RU mətni boş qalsa, həmin dildə Azərbaycanca mətn göstərilir.
 | `assets/style.css` | Dizayn (rənglər faylın əvvəlindədir) |
 | `build.py` | Saytı `content/`-dən yığan skript |
 | `.pages.yml` | Admin panelin ayarları |
-| `.github/workflows/deploy.yml` | Avtomatik yayım |
+| `netlify.toml` | Netlify yayım ayarları |
 
 Kompüterdə yoxlamaq üçün: `python3 build.py`, sonra `_site/` qovluğunda `python3 -m http.server`.
 
-## Bir dəfəlik quraşdırma
+## Yayım necə işləyir
 
-1. GitHub-da repo → **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. Eyni səhifədə **Custom domain**: `agrocenter.az` yazın və **Enforce HTTPS** seçin.
-3. Domenin DNS ayarlarında (online.az paneli):
-   - `@` üçün 4 ədəd **A** yazısı: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `www` üçün **CNAME** yazısı: `agrocentermmc-collab.github.io`
+Sayt **Netlify**-da yerləşir. Netlify bu reponun `main` budağını izləyir: hər dəyişiklikdən sonra `python3 build.py` işə salınır və `_site/` qovluğu agrocenter.az-da yayımlanır (ayarlar `netlify.toml` faylındadır). Əlavə heç nə etmək lazım deyil.
+
+Domenin DNS-i Netlify-dadır (ad serverləri `dns1–dns4.p09.nsone.net`). online.az panelində ad serverlərini dəyişməyin.
