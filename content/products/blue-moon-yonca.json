@@ -1,0 +1,115 @@
+{
+  "slug": "blue-moon-yonca",
+  "category": "toxumlar",
+  "order": 1,
+  "image": "/assets/img/blue-moon-yonca.jpg",
+  "name": {
+    "az": "Blue Moon yonca toxumu",
+    "en": "Blue Moon alfalfa seed",
+    "ru": "Семена люцерны Blue Moon"
+  },
+  "description": {
+    "az": "Əfsanəvi Blue Moon yoncası. Yaşıl və quru ot məhsuldarlığı çox yüksəkdir.",
+    "en": "The legendary Blue Moon alfalfa, with very high yields of green forage and hay.",
+    "ru": "Легендарная люцерна Blue Moon с очень высокой урожайностью зелёной массы и сена."
+  },
+  "features": {
+    "az": "Yaşıl və quru ot məhsuldarlığı çox yüksəkdir.\nGüclü saplaq və iç gövdəyə malikdir.\nYüksək protein miqdarına malikdir (18–23% aralığında).\nƏsas bitki xəstəliklərinə və aşağı temperatura dayanıqlığı yüksəkdir.\nSoyuğa davamlıdır.",
+    "en": "Very high yields of green forage and hay.\nStrong stems.\nHigh protein content (18–23%).\nHighly resistant to major plant diseases and low temperatures.\nCold-hardy.",
+    "ru": "Очень высокая урожайность зелёной массы и сена.\nПрочные стебли.\nВысокое содержание протеина (18–23%).\nВысокая устойчивость к основным болезням и низким температурам.\nХолодостойкая."
+  },
+  "package": {
+    "az": "",
+    "en": "",
+    "ru": ""
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Biçim sayı",
+        "en": "Cuts per season",
+        "ru": "Количество укосов"
+      },
+      "value": {
+        "az": "7",
+        "en": "7",
+        "ru": "7"
+      }
+    },
+    {
+      "label": {
+        "az": "Dormansi",
+        "en": "Fall dormancy",
+        "ru": "Дормантность"
+      },
+      "value": {
+        "az": "8",
+        "en": "8",
+        "ru": "8"
+      }
+    },
+    {
+      "label": {
+        "az": "Protein",
+        "en": "Protein",
+        "ru": "Протеин"
+      },
+      "value": {
+        "az": "18–23%",
+        "en": "18–23%",
+        "ru": "18–23%"
+      }
+    },
+    {
+      "label": {
+        "az": "Bitki boyu",
+        "en": "Plant height",
+        "ru": "Высота растения"
+      },
+      "value": {
+        "az": "90–120 sm",
+        "en": "90–120 cm",
+        "ru": "90–120 см"
+      }
+    },
+    {
+      "label": {
+        "az": "Əkin norması",
+        "en": "Seeding rate",
+        "ru": "Норма высева"
+      },
+      "value": {
+        "az": "25–30 kq/ha",
+        "en": "25–30 kg/ha",
+        "ru": "25–30 кг/га"
+      }
+    },
+    {
+      "label": {
+        "az": "Əkin dövrü",
+        "en": "Sowing time",
+        "ru": "Срок посева"
+      },
+      "value": {
+        "az": "Sentyabr–Oktyabr / Fevral–Mart",
+        "en": "September–October / February–March",
+        "ru": "Сентябрь–октябрь / февраль–март"
+      }
+    },
+    {
+      "label": {
+        "az": "Biçimdən sonra böyümə",
+        "en": "Regrowth after cutting",
+        "ru": "Отрастание после укоса"
+      },
+      "value": {
+        "az": "20–22 gün",
+        "en": "20–22 days",
+        "ru": "20–22 дня"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": true,
+  "price": ""
+}

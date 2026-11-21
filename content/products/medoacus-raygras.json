@@ -1,0 +1,91 @@
+{
+  "slug": "medoacus-raygras",
+  "category": "toxumlar",
+  "order": 2,
+  "image": "/assets/img/medoacus.jpg",
+  "name": {
+    "az": "MEDOACUS – İtalyan raygrası (süd otu)",
+    "en": "MEDOACUS – Italian ryegrass",
+    "ru": "MEDOACUS – райграс итальянский"
+  },
+  "description": {
+    "az": "Qış və erkən yaz aylarında yaşıl yem çatışmazlığına qarşı yüksək məhsuldarlıqlı və keyfiyyətli yem bitkisidir.\n\nMEDOACUS – qışda yaşıl yem, yüksək yem dəyəri və məhsuldar heyvandarlıq üçün.",
+    "en": "A high-yielding, high-quality forage crop that fills the green feed gap in winter and early spring.\n\nMEDOACUS: green feed in winter, high feed value and productive livestock.",
+    "ru": "Высокоурожайная и качественная кормовая культура против нехватки зелёного корма зимой и ранней весной.\n\nMEDOACUS — зелёный корм зимой, высокая питательность и продуктивное животноводство."
+  },
+  "features": {
+    "az": "Yüksək protein və qida dəyəri – süd məhsuldarlığının və südün yağlılığının yüksəlməsini dəstəkləyir.\nYüksək həzm olunma qabiliyyəti – düzgün yemləmə şəraitində köp riskinin azalmasına kömək edir.\nDaha yaxşı həzm və balanslı rasion sayəsində fermada peyin qoxusunun idarə olunmasına töhfə verə bilər.\nSoyuq aylarda heyvanların birbaşa sahədə otarılması üçün uyğundur.\nBol məhsul dövründə biçilib silos və ya quru ot şəklində saxlanılaraq yay aylarında istifadə edilə bilər.\nSoyuğa və əsas bitki xəstəliklərinə yüksək davamlıdır.\nSürətli yenidən böyüməsi davamlı və məhsuldar yem bazasının yaradılmasına imkan verir.",
+    "en": "High protein and nutritional value supports higher milk yield and milk fat.\nHighly digestible: with proper feeding, it helps reduce the risk of bloat.\nBetter digestion and a balanced ration can help manage manure odour on the farm.\nSuitable for direct grazing in the cold months.\nIn peak season it can be cut and stored as silage or hay for use in summer.\nHighly resistant to cold and major plant diseases.\nFast regrowth builds a steady, productive feed base.",
+    "ru": "Высокое содержание протеина и питательная ценность способствуют росту надоев и жирности молока.\nВысокая переваримость: при правильном кормлении снижает риск тимпании.\nЛучшее пищеварение и сбалансированный рацион помогают уменьшить запах навоза на ферме.\nПодходит для выпаса животных прямо в поле в холодные месяцы.\nВ период обильного урожая можно скашивать на силос или сено для использования летом.\nВысокая устойчивость к холоду и основным болезням.\nБыстрое отрастание позволяет создать стабильную и продуктивную кормовую базу."
+  },
+  "package": {
+    "az": "25 kq kisə",
+    "en": "25 kg bag",
+    "ru": "Мешок 25 кг"
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Əkin dövrü",
+        "en": "Sowing time",
+        "ru": "Срок посева"
+      },
+      "value": {
+        "az": "Sentyabr–Oktyabr",
+        "en": "September–October",
+        "ru": "Сентябрь–октябрь"
+      }
+    },
+    {
+      "label": {
+        "az": "Əkin norması",
+        "en": "Seeding rate",
+        "ru": "Норма высева"
+      },
+      "value": {
+        "az": "40–50 kq/ha",
+        "en": "40–50 kg/ha",
+        "ru": "40–50 кг/га"
+      }
+    },
+    {
+      "label": {
+        "az": "İstifadə",
+        "en": "Use",
+        "ru": "Использование"
+      },
+      "value": {
+        "az": "Otlaq, silos, quru ot",
+        "en": "Grazing, silage, hay",
+        "ru": "Пастбище, силос, сено"
+      }
+    },
+    {
+      "label": {
+        "az": "Təmizlik",
+        "en": "Purity",
+        "ru": "Чистота"
+      },
+      "value": {
+        "az": "98%",
+        "en": "98%",
+        "ru": "98%"
+      }
+    },
+    {
+      "label": {
+        "az": "Cücərmə",
+        "en": "Germination",
+        "ru": "Всхожесть"
+      },
+      "value": {
+        "az": "96%",
+        "en": "96%",
+        "ru": "96%"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": true,
+  "price": ""
+}

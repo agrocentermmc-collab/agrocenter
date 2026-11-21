@@ -1,0 +1,79 @@
+{
+  "slug": "nitroammofoska-16-16-16",
+  "category": "gubreler",
+  "order": 2,
+  "image": "/assets/img/nitroammofoska.jpg",
+  "name": {
+    "az": "Nitroammofoska 16-16-16",
+    "en": "Nitroammophoska 16-16-16",
+    "ru": "Нитроаммофоска 16-16-16"
+  },
+  "description": {
+    "az": "Nitroammofoska gübrəsi tərkibində hər üç əsas qida elementini daşıyan (N-16%; P-16%; K-16%) kompleks gübrədir. Şum altına, əkinlə birgə və yemləmə məqsədilə bütün bitki növlərinə tətbiq edilə bilər.\n\nNitroammofoska gübrəsindən istifadə etdikdə bitkinin immuniteti artır, iqlim dəyişikliyinə adaptasiyanı sürətləndirir, məhsulun saxlanma müddətini artır. Tərkibindəki azot fotosintez prosesini sürətləndirir, fosfor reproduktiv orqanlarının (çiçəklər, meyvələr) böyüməsi və inkişafı üçün xüsusən zəruri rol oynayır, kalium isə kökümeyvəlilərin inkişafında əsas rol oynayır, dənli bitkilərin gövdəsinin möhkəmlənməsinə kömək edir.",
+    "en": "Nitroammophoska is a complex fertilizer containing all three main nutrients (N 16%, P 16%, K 16%). It can be applied to all crops: before ploughing, at sowing and as top dressing.\n\nIt strengthens plant immunity, helps plants adapt to changing weather and extends the storage life of the harvest. Nitrogen speeds up photosynthesis, phosphorus is especially important for the growth of flowers and fruit, and potassium plays a key role in root crops and strengthens the stems of cereals.",
+    "ru": "Нитроаммофоска — комплексное удобрение, содержащее все три основных элемента питания (N 16%, P 16%, K 16%). Применяется под вспашку, при посеве и для подкормки всех культур.\n\nПовышает иммунитет растений, ускоряет адаптацию к изменениям климата, увеличивает срок хранения урожая. Азот ускоряет фотосинтез, фосфор особенно важен для роста цветков и плодов, а калий играет ключевую роль в развитии корнеплодов и укрепляет стебли зерновых."
+  },
+  "features": {
+    "az": "",
+    "en": "",
+    "ru": ""
+  },
+  "package": {
+    "az": "50 kq kisə",
+    "en": "50 kg bag",
+    "ru": "Мешок 50 кг"
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Azot (N)",
+        "en": "Nitrogen (N)",
+        "ru": "Азот (N)"
+      },
+      "value": {
+        "az": "16%",
+        "en": "16%",
+        "ru": "16%"
+      }
+    },
+    {
+      "label": {
+        "az": "Fosfor (P)",
+        "en": "Phosphorus (P)",
+        "ru": "Фосфор (P)"
+      },
+      "value": {
+        "az": "16%",
+        "en": "16%",
+        "ru": "16%"
+      }
+    },
+    {
+      "label": {
+        "az": "Kalium (K)",
+        "en": "Potassium (K)",
+        "ru": "Калий (K)"
+      },
+      "value": {
+        "az": "16%",
+        "en": "16%",
+        "ru": "16%"
+      }
+    },
+    {
+      "label": {
+        "az": "Marka",
+        "en": "Brand",
+        "ru": "Марка"
+      },
+      "value": {
+        "az": "Avrora (EuroChem)",
+        "en": "Avrora (EuroChem)",
+        "ru": "Avrora (EuroChem)"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": true,
+  "price": ""
+}

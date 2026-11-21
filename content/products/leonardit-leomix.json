@@ -1,0 +1,91 @@
+{
+  "slug": "leonardit-leomix",
+  "category": "gubreler",
+  "order": 3,
+  "image": "/assets/img/leomix.jpg",
+  "name": {
+    "az": "Leonardit LEOMIX",
+    "en": "Leonardite LEOMIX",
+    "ru": "Леонардит LEOMIX"
+  },
+  "description": {
+    "az": "Üzvi torpaq düzəldici. Heyvan peyini deyil: bitkilərinizi yandırmaz, tərkibində alaq otları yoxdur.",
+    "en": "Organic soil conditioner. Not animal manure: it won’t burn your plants and contains no weed seeds.",
+    "ru": "Органический почвоулучшитель. Не навоз: не обжигает растения и не содержит семян сорняков."
+  },
+  "features": {
+    "az": "Asan tətbiq olunur və qoxusuzdur.\nTorpağın PH (gərginliyini) azaldır.\nKök inkişafını təmin edir.\nTorpağı yumşaldır və havalandırır.\nBitkilərin cücərməsini və çiçəklənməsini sürətləndirir.\nTorpağın su tutmasını təmin edərək, isti mühitdə bitkilərin solmasının qarşısını alır.\nSuvarma intervalını uzadır.\nTorpağı üzvi və mineral qidalarla təmin edir.\nTorpağın mikrobioloji xüsusiyyətlərini artırır.\nBitkilərin şaxta hadisələrinə qarşı müqavimətini artırır.\nBitkinin sağlam köklərə, çiçəklərə və yarpaqlara sahib olmasını təmin edir.",
+    "en": "Easy to apply and odourless.\nLowers soil pH.\nPromotes root development.\nLoosens and aerates the soil.\nSpeeds up germination and flowering.\nHelps the soil hold water, preventing wilting in hot weather.\nExtends the time between waterings.\nSupplies the soil with organic and mineral nutrients.\nImproves the soil’s microbiological properties.\nIncreases plant resistance to frost.\nHelps plants develop healthy roots, flowers and leaves.",
+    "ru": "Легко вносится, не имеет запаха.\nСнижает pH почвы.\nСпособствует развитию корней.\nРазрыхляет и аэрирует почву.\nУскоряет прорастание и цветение.\nУдерживает влагу в почве и предотвращает увядание растений в жару.\nУвеличивает интервал между поливами.\nОбеспечивает почву органическими и минеральными веществами.\nУлучшает микробиологические свойства почвы.\nПовышает устойчивость растений к заморозкам.\nПомогает растениям формировать здоровые корни, цветки и листья."
+  },
+  "package": {
+    "az": "25 kq kisə",
+    "en": "25 kg bag",
+    "ru": "Мешок 25 кг"
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Üzvi maddə",
+        "en": "Organic matter",
+        "ru": "Органическое вещество"
+      },
+      "value": {
+        "az": "40%",
+        "en": "40%",
+        "ru": "40%"
+      }
+    },
+    {
+      "label": {
+        "az": "Ümumi üzvi karbon",
+        "en": "Total organic carbon",
+        "ru": "Общий органический углерод"
+      },
+      "value": {
+        "az": "22%",
+        "en": "22%",
+        "ru": "22%"
+      }
+    },
+    {
+      "label": {
+        "az": "Maksimum nəm",
+        "en": "Maximum moisture",
+        "ru": "Макс. влажность"
+      },
+      "value": {
+        "az": "35%",
+        "en": "35%",
+        "ru": "35%"
+      }
+    },
+    {
+      "label": {
+        "az": "pH",
+        "en": "pH",
+        "ru": "pH"
+      },
+      "value": {
+        "az": "6–8",
+        "en": "6–8",
+        "ru": "6–8"
+      }
+    },
+    {
+      "label": {
+        "az": "İstehsalçı",
+        "en": "Manufacturer",
+        "ru": "Производитель"
+      },
+      "value": {
+        "az": "Palmiye Tarım (Türkiyə)",
+        "en": "Palmiye Tarım (Turkey)",
+        "ru": "Palmiye Tarım (Турция)"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": true,
+  "price": ""
+}

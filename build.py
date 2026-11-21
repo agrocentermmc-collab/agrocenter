@@ -38,6 +38,7 @@ T = {
     "price_on_request": {"az": "Qiymət üçün zəng edin", "en": "Call for price", "ru": "Цена по запросу"},
     "ask_product": {"az": "Bu məhsulu soruşun", "en": "Ask about this product", "ru": "Спросить о продукте"},
     "details": {"az": "Ətraflı", "en": "Details", "ru": "Подробнее"},
+    "benefits": {"az": "Faydaları", "en": "Benefits", "ru": "Преимущества"},
     "package": {"az": "Qablaşdırma", "en": "Packaging", "ru": "Упаковка"},
     "price": {"az": "Qiymət", "en": "Price", "ru": "Цена"},
     "category": {"az": "Kateqoriya", "en": "Category", "ru": "Категория"},
@@ -316,7 +317,7 @@ def build_home(lang):
     hero_p = next((p for p in feat if p.get("image")), None)
     label = ""
     if hero_p:
-        specs = "".join(f'<div><dt>{e(tx(s["label"], lang))}</dt><dd>{e(s["value"])}</dd></div>' for s in hero_p.get("specs", []))
+        specs = "".join(f'<div><dt>{e(tx(s["label"], lang))}</dt><dd>{e(tx(s["value"], lang))}</dd></div>' for s in hero_p.get("specs", []))
         pk = tx(hero_p.get("package"), lang)
         if pk:
             specs += f'<div><dt>{T["package"][lang]}</dt><dd>{e(pk)}</dd></div>'
@@ -383,7 +384,7 @@ def build_product(lang, p):
     if cat:
         rows += f'<div><dt>{T["category"][lang]}</dt><dd><a href="{url("products", lang)}#{cat["slug"]}">{e(tx(cat["name"], lang))}</a></dd></div>'
     for s in p.get("specs", []):
-        rows += f'<div><dt>{e(tx(s["label"], lang))}</dt><dd>{e(s["value"])}</dd></div>'
+        rows += f'<div><dt>{e(tx(s["label"], lang))}</dt><dd>{e(tx(s["value"], lang))}</dd></div>'
     if tx(p.get("package"), lang):
         rows += f'<div><dt>{T["package"][lang]}</dt><dd>{e(tx(p["package"], lang))}</dd></div>'
     rows += f'<div><dt>{T["price"][lang]}</dt><dd>{e(p.get("price")) or T["price_on_request"][lang]}</dd></div>'
@@ -392,6 +393,9 @@ def build_product(lang, p):
     rel_html = (f'<section class="sec"><div class="wrap"><h2 class="sec-title">{e(tx(cat["name"], lang)) if cat else ""}</h2>'
                 f'<ul class="grid">{"".join(product_card(q, lang) for q in related)}</ul></div></section>') if related else ""
     desc = tx(p.get("description"), lang)
+    feats = [f.strip(" -•✅\t") for f in tx(p.get("features"), lang).splitlines() if f.strip(" -•✅\t")]
+    features_html = (f'<h2 class="pd-sub">{T["benefits"][lang]}</h2><ul class="feats">'
+                     + "".join(f"<li>{e(f)}</li>" for f in feats) + "</ul>") if feats else ""
     jsonld = {"@context": "https://schema.org", "@type": "Product", "name": name, "description": desc,
               "brand": {"@type": "Brand", "name": "Agro Center"}}
     if p.get("image"):
@@ -402,6 +406,7 @@ def build_product(lang, p):
   <div class="pd-text">
     <h1>{e(name)}</h1>
     {paras(desc)}
+    {features_html}
     <dl class="specs">{rows}</dl>
     <p class="pd-ask">{T["ask_product"][lang]}</p>
     {contact_buttons(lang, wa_text)}

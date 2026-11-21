@@ -25,9 +25,9 @@
         "ru": "Семена"
       },
       "desc": {
-        "az": "Tərəvəz, taxıl və bostan toxumları",
-        "en": "Vegetable, grain and melon seeds",
-        "ru": "Семена овощных, зерновых и бахчевых культур"
+        "az": "Yonca, raygras və digər yem bitkiləri",
+        "en": "Alfalfa, ryegrass and other forage crops",
+        "ru": "Люцерна, райграс и другие кормовые культуры"
       }
     },
     {
@@ -40,9 +40,9 @@
         "ru": "Средства защиты растений"
       },
       "desc": {
-        "az": "Fungisidlər, herbisidlər, insektisidlər",
-        "en": "Fungicides, herbicides, insecticides",
-        "ru": "Фунгициды, гербициды, инсектициды"
+        "az": "Bitkiləri xəstəliklərdən qoruyan preparatlar",
+        "en": "Products that protect crops from disease",
+        "ru": "Препараты для защиты растений от болезней"
       }
     }
   ]

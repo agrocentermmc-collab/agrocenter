@@ -57,6 +57,13 @@ content:
           - { name: az, label: Azərbaycanca, type: text }
           - { name: en, label: English, type: text }
           - { name: ru, label: Русский, type: text }
+      - name: features
+        label: Faydaları (hər sətir ayrıca bənd kimi göstərilir)
+        type: object
+        fields:
+          - { name: az, label: Azərbaycanca, type: text }
+          - { name: en, label: English, type: text }
+          - { name: ru, label: Русский, type: text }
       - name: package
         label: Qablaşdırma (məs. 25 kq kisə)
         type: object
@@ -79,7 +86,13 @@ content:
               - { name: az, label: Azərbaycanca, type: string }
               - { name: en, label: English, type: string }
               - { name: ru, label: Русский, type: string }
-          - { name: value, label: Dəyər, type: string }
+          - name: value
+            label: Dəyər
+            type: object
+            fields:
+              - { name: az, label: Azərbaycanca, type: string }
+              - { name: en, label: English, type: string }
+              - { name: ru, label: Русский, type: string }
 
   - name: settings
     label: Əlaqə məlumatları

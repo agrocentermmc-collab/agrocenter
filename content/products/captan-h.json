@@ -1,0 +1,79 @@
+{
+  "slug": "captan-h",
+  "category": "bitki-muhafizesi",
+  "order": 1,
+  "image": "/assets/img/captan-h.jpg",
+  "name": {
+    "az": "Captan'H funqisid",
+    "en": "Captan'H fungicide",
+    "ru": "Фунгицид Captan'H"
+  },
+  "description": {
+    "az": "Güclü və etibarlı göbələk əleyhinə qoruma.\n\nCaptan, meyvə və tərəvəz bitkilərində rast gəlinən göbələk xəstəliklərinə – monilioz, alternarioz, antraknoz, boğaz çürüməsi və digər göbələk mənşəli xəstəliklərə qarşı yüksək effektivlik göstərir. Xəstəliklərin yaranmasının qarşısını alır və bitkinin sağlam inkişafını dəstəkləyir.",
+    "en": "Strong, reliable protection against fungal disease.\n\nCaptan is highly effective against fungal diseases of fruit and vegetable crops, including monilinia, alternaria, anthracnose, collar rot and other fungal infections. It prevents disease from developing and supports healthy plant growth.",
+    "ru": "Надёжная защита от грибковых болезней.\n\nКаптан высокоэффективен против грибковых болезней плодовых и овощных культур: монилиоза, альтернариоза, антракноза, гнили корневой шейки и других. Предотвращает развитие болезней и поддерживает здоровый рост растений."
+  },
+  "features": {
+    "az": "Kontakt təsirli – xəstəliklərin yayılmasının qarşısını alır.\nProfilaktik və müalicəvi istifadə.\nBitkilərdə fitotoksiklik yaratmır.\nTərəvəz və meyvə bağlarında geniş tətbiq sahəsi.",
+    "en": "Contact action stops disease from spreading.\nPreventive and curative use.\nNot phytotoxic to plants.\nWide use in vegetable fields and orchards.",
+    "ru": "Контактное действие препятствует распространению болезней.\nПрофилактическое и лечебное применение.\nНе фитотоксичен.\nШироко применяется в овощеводстве и садоводстве."
+  },
+  "package": {
+    "az": "",
+    "en": "",
+    "ru": ""
+  },
+  "specs": [
+    {
+      "label": {
+        "az": "Tərkibi",
+        "en": "Active ingredient",
+        "ru": "Действующее вещество"
+      },
+      "value": {
+        "az": "500 q/kq Captan",
+        "en": "500 g/kg Captan",
+        "ru": "500 г/кг каптана"
+      }
+    },
+    {
+      "label": {
+        "az": "Preparat forması",
+        "en": "Formulation",
+        "ru": "Препаративная форма"
+      },
+      "value": {
+        "az": "İslanabilən toz (WP)",
+        "en": "Wettable powder (WP)",
+        "ru": "Смачивающийся порошок (СП)"
+      }
+    },
+    {
+      "label": {
+        "az": "Uyğun bitkilər",
+        "en": "Suitable crops",
+        "ru": "Культуры"
+      },
+      "value": {
+        "az": "Meyvə ağacları, tərəvəzlər, üzüm bağları, giləmeyvələr",
+        "en": "Fruit trees, vegetables, vineyards, berries",
+        "ru": "Плодовые деревья, овощи, виноградники, ягодники"
+      }
+    },
+    {
+      "label": {
+        "az": "İstehsalçı",
+        "en": "Manufacturer",
+        "ru": "Производитель"
+      },
+      "value": {
+        "az": "Hektaş",
+        "en": "Hektaş",
+        "ru": "Hektaş"
+      }
+    }
+  ],
+  "visible": true,
+  "featured": true,
+  "price": ""
+}
