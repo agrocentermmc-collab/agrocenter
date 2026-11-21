@@ -10,7 +10,7 @@
     "ru": "Надёжный партнёр фермеров Азербайджана"
   },
   "lead": {
-    "az": "Agro Center MMC Azərbaycanda gübrə, toxum və bitki mühafizə vasitələri satan şirkətdir.",
+    "az": "Agro Center MMC Azərbaycanda gübrə, toxum və bitki mühafizə vasitələri təchiz edən şirkətdir.",
     "en": "Agro Center MMC supplies fertilizers, seeds and crop protection products in Azerbaijan.",
     "ru": "Agro Center MMC — поставщик удобрений, семян и средств защиты растений в Азербайджане."
   },
@@ -34,7 +34,7 @@
       }
     },
     {
-      "value": "5000+",
+      "value": "1000+",
       "label": {
         "az": "Məmnun fermer",
         "en": "Satisfied farmers",
@@ -50,7 +50,7 @@
       }
     },
     {
-      "value": "60+",
+      "value": "20+",
       "label": {
         "az": "Rayon əhatəsi",
         "en": "Districts served",
