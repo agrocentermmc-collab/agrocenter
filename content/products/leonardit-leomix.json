@@ -38,14 +38,14 @@
     },
     {
       "label": {
-        "az": "Ümumi üzvi karbon",
-        "en": "Total organic carbon",
-        "ru": "Общий органический углерод"
+        "az": "Ümumi humik-fulvik turşu",
+        "en": "Total humic and fulvic acids",
+        "ru": "Сумма гуминовых и фульвокислот"
       },
       "value": {
-        "az": "22%",
-        "en": "22%",
-        "ru": "22%"
+        "az": "40%",
+        "en": "40%",
+        "ru": "40%"
       }
     },
     {
@@ -67,9 +67,9 @@
         "ru": "pH"
       },
       "value": {
-        "az": "6–8",
-        "en": "6–8",
-        "ru": "6–8"
+        "az": "5–7",
+        "en": "5–7",
+        "ru": "5–7"
       }
     },
     {
